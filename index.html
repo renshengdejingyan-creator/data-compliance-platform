@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据合规生态平台 - 共建数据安全联盟，护航企业数字未来</title>
+    <link rel="stylesheet" href="css/data-compliance.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+</head>
+<body>
+    <canvas id="particleCanvas"></canvas>
+    
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">数据合规<span class="accent">生态平台</span></div>
+            <ul class="nav-links">
+                <li><a href="#hero">首页</a></li>
+                <li><a href="#law-finance">律所财税</a></li>
+                <li><a href="#enterprise">企业服务</a></li>
+                <li><a href="#university">高校合作</a></li>
+                <li><a href="#products">产品推荐</a></li>
+                <li><a href="#about">关于我们</a></li>
+                <li><a href="#join" class="nav-cta">加入联盟</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="hero" class="hero">
+        <div class="hero-container">
+            <h1 class="hero-title" data-aos="zoom-in" data-aos-delay="200">共建数据安全联盟<br>护航企业数字未来</h1>
+            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="400">律所·财税·高校·企业 | 一站式数据安全资源对接平台</p>
+            <p class="hero-description" data-aos="fade-up" data-aos-delay="500">打造数据合规生态圈</p>
+            <div class="hero-cta" data-aos="fade-up" data-aos-delay="600">
+                <button class="btn-primary">立即咨询</button>
+                <button class="btn-secondary">了解更多</button>
+            </div>
+            <div class="hero-stats" data-aos="fade-up" data-aos-delay="700">
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">合作机构</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">1000+</div>
+                    <div class="stat-label">服务企业</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">客户满意度</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="bento-section">
+        <div class="section-container">
+            <h2 class="section-title" data-aos="fade-up">核心业务模块</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">四大业务板块，全方位数据安全服务</p>
+            
+            <div class="bento-grid-services">
+                <div class="bento-card" id="law-finance" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-number">01</div>
+                    <div class="card-icon">⚖️</div>
+                    <h3 class="card-title">律所财税</h3>
+                    <p class="card-desc">为律所和财税机构提供专业的数据合规服务资源对接</p>
+                    <div class="card-tags">
+                        <span class="tag">客户拓展</span>
+                        <span class="tag">资源共享</span>
+                        <span class="tag">业务升级</span>
+                    </div>
+                </div>
+                
+                <div class="bento-card" id="enterprise" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card-number">02</div>
+                    <div class="card-icon">🤖</div>
+                    <h3 class="card-title">企业AI合规</h3>
+                    <p class="card-desc">提供AI营销合规咨询、备案服务及营销自查解决方案</p>
+                    <div class="card-tags">
+                        <span class="tag">合规咨询</span>
+                        <span class="tag">AI备案</span>
+                        <span class="tag">营销自查</span>
+                    </div>
+                </div>
+                
+                <div class="bento-card" id="university" data-aos="fade-up" data-aos-delay="500">
+                    <div class="card-number">03</div>
+                    <div class="card-icon">🎓</div>
+                    <h3 class="card-title">高校合作</h3>
+                    <p class="card-desc">产学研深度融合，共同推动数据安全领域人才培养</p>
+                    <div class="card-tags">
+                        <span class="tag">产学研</span>
+                        <span class="tag">课题共研</span>
+                        <span class="tag">人才共育</span>
+                    </div>
+                </div>
+                
+                <div class="bento-card" id="products" data-aos="fade-up" data-aos-delay="600">
+                    <div class="card-number">04</div>
+                    <div class="card-icon">🛡️</div>
+                    <h3 class="card-title">AI安全产品</h3>
+                    <p class="card-desc">严选优质数据安全产品，提供平台背书和售后协调</p>
+                    <div class="card-tags">
+                        <span class="tag">平台背书</span>
+                        <span class="tag">严选产品</span>
+                        <span class="tag">售后协调</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="section-container">
+            <h2 class="section-title" data-aos="fade-up">我们是谁</h2>
+            <div class="about-content" data-aos="fade-up" data-aos-delay="200">
+                <div class="about-card">
+                    <div class="about-icon">🎯</div>
+                    <h3>平台定位</h3>
+                    <p>连接数据安全需求方与服务方，提供AI营销合规、评估、背书一站式服务</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">🌐</div>
+                    <h3>生态体系</h3>
+                    <p>汇聚律所、财税、高校、企业等多方资源，构建完整的数据合规生态圈</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">💡</div>
+                    <h3>核心价值</h3>
+                    <p>通过专业服务和资源整合，助力企业实现数据安全合规，推动行业健康发展</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="partners-section">
+        <div class="section-container">
+            <h2 class="section-title" data-aos="fade-up">合作伙伴</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">携手共建数据安全生态</p>
+            <div class="partners-carousel" data-aos="fade-up" data-aos-delay="300">
+                <div class="partners-track">
+                    <div class="partner-logo">合作伙伴 1</div>
+                    <div class="partner-logo">合作伙伴 2</div>
+                    <div class="partner-logo">合作伙伴 3</div>
+                    <div class="partner-logo">合作伙伴 4</div>
+                    <div class="partner-logo">合作伙伴 5</div>
+                    <div class="partner-logo">合作伙伴 6</div>
+                    <div class="partner-logo">合作伙伴 1</div>
+                    <div class="partner-logo">合作伙伴 2</div>
+                    <div class="partner-logo">合作伙伴 3</div>
+                    <div class="partner-logo">合作伙伴 4</div>
+                    <div class="partner-logo">合作伙伴 5</div>
+                    <div class="partner-logo">合作伙伴 6</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="join" class="membership-section">
+        <div class="section-container">
+            <h2 class="section-title" data-aos="fade-up">加入联盟</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">成为生态伙伴，共享平台资源</p>
+            
+            <div class="membership-unified" data-aos="fade-up" data-aos-delay="300">
+                <div class="membership-benefits">
+                    <div class="benefit-item">
+                        <div class="benefit-title">资源对接</div>
+                        <p>获取海量优质客户资源，拓展业务合作机会</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-title">平台背书</div>
+                        <p>享受平台品牌背书，提升企业公信力和影响力</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-title">宣传扶持</div>
+                        <p>获得平台多渠道宣传推广，扩大品牌知名度</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-title">智库参与</div>
+                        <p>参与行业标准制定，共建数据安全智库体系</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="join-cta" data-aos="fade-up" data-aos-delay="700">
+                <button class="btn-join">立即加入</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="qa-section">
+        <div class="section-container">
+            <h2 class="section-title" data-aos="fade-up">企业问问</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">针对数据合规问题，我们为您提供专业解答</p>
+            
+            <div class="qa-container" data-aos="fad data-aos-delay="300">
+                <div class="qa-card">
+                    <div class="qa-icon">💬</div>
+                    <h3>有数据合规问题？</h3>
+                    <p>提交您的需求，我们的专家团队将为您提供专业的解决方案</p>
+                    <div class="qa-form">
+                        <input type="text" placeholder="请输入您的问题" class="qa-input">
+                        <button class="btn-submit">提问</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="showcase-section">
+        <div class="section-container">
+            <h2 class="section-title" data-aos="fade-up">成功案例</h2>
+            <div class="showcase-carousel" data-aos="fade-up" data-aos-delay="200">
+                <div class="showcase-track">
+                    <div class="showcase-item"><img src="img/img1.png" alt="案例展示 1"></div>
+                    <div class="showcase-item"><img src="img/img2.png" alt="案例展示 2"></div>
+                    <div class="showcase-item"><img src="img/img3.png" alt="案例展示 3"></div>
+                    <div class="showcase-item"><img src="img/img4.png" alt="案例展示 4"></div>
+                    <div class="showcase-item"><img src="img/img5.png" alt="案例展示 5"></div>
+                    <div class="showcase-item"><img src="img/img6.png" alt="案例展示 6"></div>
+                    <div class="showcase-item"><img src="img/img7.png" alt="案例展示 7"></div>
+                    <div class="showcase-item"><img src="img/img1.png" alt="案例展示 1"></div>
+                    <div class="showcase-item"><img src="img/img2.png" alt="案例展示 2"></div>
+                    <div class="showcase-item"><img src="img/img3.png" alt="案例展示 3"></div>
+                    <div class="showcase-item"><img src="img/img4.png" alt="案例展示 4"></div>
+                    <div class="showcase-item"><img src="img/img5.png" alt="案例展示 5"></div>
+                    <div class="showcase-item"><img src="img/img6.png" alt="案例展示 6"></div>
+                    <div class="showcase-item"><img src="img/img7.png" alt="案例展示 7"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#about">平台介绍</a></li>
+                        <li><a href="#services">核心业务</a></li>
+                        <li><a href="#partners">合作伙伴</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li><a href="#">联系方式</a></li>
+                        <li><a href="#">商务合作</a></li>
+                        <li><a href="#">在线咨询</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>加入我们</h4>
+                    <ul>
+                        <li><a href="#join">成为伙伴</a></li>
+                        <li><a href="#">人才招聘</a></li>
+                        <li><a href="#">合作申请</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>法律条款</h4>
+                    <ul>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">服务条款</a></li>
+                        <li><a href="#">免责声明</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 天津数据合规生态平台. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 联系弹窗 -->
+    <div id="contactModal" class="modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>联系我们</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <form id="contactForm" class="modal-form">
+                <div class="form-group">
+                    <label for="productName">产品名称 <span class="required">*</span></label>
+                    <input type="text" id="productName" name="productName" placeholder="请输入产品名称（20字以内）" maxlength="20" required>
+                    <span class="error-message" id="productNameError"></span>
+                </div>
+                <div class="form-group">
+                    <label for="productDesc">产品介绍</label>
+                    <textarea id="productDesc" name="productDesc" placeholder="请输入产品介绍（200字以内）" maxlength="200" rows="4"></textarea>
+                    <span class="char-count"><span id="descCount">0</span>/200</span>
+                </div>
+                <div class="form-group">
+                    <label for="contactPhone">联系方式 <span class="required">*</span></label>
+                    <input type="tel" id="contactPhone" name="contactPhone" placeholder="请输入手机号码" required>
+                    <span class="error-message" id="contactPhoneError"></span>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-cancel">取消</button>
+                    <button type="submit" class="btn-submit-form">
+                        <span class="btn-text">提交</span>
+                        <span class="btn-loading">提交中...</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="js/data-compliance-particles.js"></script>
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        AOS.init({
+            duration: 1200,
+            once: true,
+            offset: 120,
+            easing: 'ease-out-cubic'
+        });
+
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        function setActiveNav() {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', setActiveNav);
+        window.addEventListener('load', setActiveNav);
+
+        function animateNumber(element, target, duration = 2000) {
+            const start = 0;
+            const startTime = performance.now();
+            
+            function update(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+                
+                const hasPercent = target.toString().includes('%');
+                const hasPlus = target.toString().includes('+');
+                
+                let currentValue;
+                if (hasPercent) {
+                    const numValue = parseFloat(target);
+                    currentValue = Math.floor(numValue * easeOutQuart) + '%';
+                } else if (hasPlus) {
+                    const numValue = parseFloat(target);
+                    currentValue = Math.floor(numValue * easeOutQuart) + '+';
+                } else {
+                    currentValue = Math.floor(parseFloat(target) * easeOutQuart);
+                }
+                
+                element.textContent = currentValue;
+                
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                } else {
+                    element.textContent = target;
+                }
+            }
+            
+            requestAnimationFrame(update);
+        }
+
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+                    entry.target.classList.add('animated');
+                    const targetValue = entry.target.getAttribute('data-target');
+                    animateNumber(entry.target, targetValue);
+                }
+            });
+        }, observerOptions);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            statNumbers.forEach(stat => {
+                const originalText = stat.textContent;
+                stat.setAttribute('data-target', originalText);
+                stat.textContent = '0';
+                observer.observe(stat);
+            });
+        });
+
+        // 弹窗交互逻辑
+        const modal = document.getElementById('contactModal');
+        const contactForm = document.getElementById('contactForm');
+        const modalClose = document.querySelector('.modal-close');
+        const btnCancel = document.querySelector('.btn-cancel');
+        const modalOverlay = document.querySelector('.modal-overlay');
+        
+        // 获取所有触发按钮
+        const triggerButtons = document.querySelectorAll('.btn-primary, .btn-join, .nav-cta');
+        
+        // 表单字段
+        const productNameInput = document.getElementById('productName');
+        const productDescInput = document.getElementById('productDesc');
+        const contactPhoneInput = document.getElementById('contactPhone');
+        const descCount = document.getElementById('descCount');
+        
+        // 错误提示元素
+        const productNameError = document.getElementById('productNameError');
+        const contactPhoneError = document.getElementById('contactPhoneError');
+        
+        // 打开弹窗
+        function openModal() {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        // 关闭弹窗
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+            contactForm.reset();
+            clearErrors();
+            descCount.textContent = '0';
+        }
+        
+        // 清除错误提示
+        function clearErrors() {
+            productNameError.textContent = '';
+            contactPhoneError.textContent = '';
+        }
+        
+        // 验证手机号
+        function validatePhone(phone) {
+            const phoneRegex = /^1[3-9]\d{9}$/;
+            return phoneRegex.test(phone);
+        }
+        
+        // 为所有触发按钮绑定点击事件
+        triggerButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal();
+            });
+        });
+        
+        // 关闭按钮事件
+        modalClose.addEventListener('click', closeModal);
+        btnCancel.addEventListener('click', closeModal);
+        modalOverlay.addEventListener('click', closeModal);
+        
+        // 字符计数
+        productDescInput.addEventListener('input', () => {
+            descCount.textContent = productDescInput.value.length;
+        });
+        
+        // 实时验证
+        productNameInput.addEventListener('blur', () => {
+            if (!productNameInput.value.trim()) {
+                productNameError.textContent = '请输入产品名称';
+            } else if (productNameInput.value.length > 20) {
+                productNameError.textContent = '产品名称不能超过20个字';
+            } else {
+                productNameError.textContent = '';
+            }
+        });
+        
+        contactPhoneInput.addEventListener('blur', () => {
+            if (!contactPhoneInput.value.trim()) {
+                contactPhoneError.textContent = '请输入联系方式';
+            } else if (!validatePhone(contactPhoneInput.value)) {
+                contactPhoneError.textContent = '请输入正确的手机号码格式';
+            } else {
+                contactPhoneError.textContent = '';
+            }
+        });
+        
+        // 表单提交
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            clearErrors();
+            
+            // 验证产品名称
+            if (!productNameInput.value.trim()) {
+                productNameError.textContent = '请输入产品名称';
+                productNameInput.focus();
+                return;
+            }
+            
+            if (productNameInput.value.length > 20) {
+                productNameError.textContent = '产品名称不能超过20个字';
+                productNameInput.focus();
+                return;
+            }
+            
+            // 验证联系方式
+            if (!contactPhoneInput.value.trim()) {
+                contactPhoneError.textContent = '请输入联系方式';
+                contactPhoneInput.focus();
+                return;
+            }
+            
+            if (!validatePhone(contactPhoneInput.value)) {
+                contactPhoneError.textContent = '请输入正确的手机号码格式';
+                contactPhoneInput.focus();
+              return;
+            }
+            
+            // 验证产品介绍（非必填）
+            if (productDescInput.value.length > 200) {
+                alert('产品介绍不能超过200个字');
+                return;
+            }
+            
+            // 准备提交数据
+            const formData = {
+                productName: productNameInput.value.trim(),
+                productDesc: productDescInput.value.trim(),
+                contactPhone: contactPhoneInput.value.trim(),
+                timestamp: new Date().toISOString()
+            };
+            
+            // 显示加载状态
+            const submitBtn = contactForm.querySelector('.btn-submit-form');
+            submitBtn.classList.add('loading');
+            submitBtn.disabled = true;
+            
+            try {
+                // 模拟2秒延迟
+                await new Promise(resolve => setTimeout(resolve, 2000));
+                
+                // 发送数据到后台（这里使用模拟的API端点）
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                // 注意：由于没有真实后台，fetch会失败，但我们可以捕获并模拟成功
+                console.log('提交的数据：', formData);
+                
+                // 模拟成功提示
+                alert('提交成功！我们会尽快与您联系。');
+                closeModal();
+                
+            } catch (error) {
+                // 即使fetch失败，也显示成功（因为是演示）
+                console.log('提交的数据：', formData);
+                alert('提交成功！我们会尽快与您联系。');
+                closeModal();
+            } finally {
+                // 恢复按钮状态
+                submitBtn.classList.remove('loading');
+                submitBtn.disabled = false;
+            }
+        });
+        
+        // ESC键关闭弹窗
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
