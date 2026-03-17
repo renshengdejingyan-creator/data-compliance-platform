@@ -1,1 +1,4 @@
 plan
+.env
+.vercel
+.env*.local
