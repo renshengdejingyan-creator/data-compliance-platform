@@ -61,8 +61,8 @@ class SectionScroller {
         if (!this.footer) return false;
         const footerTop = this.footer.offsetTop;
         const scrollTop = window.pageYOffset;
-        const viewportHeight = window.innerHeight;
-        return scrollTop + viewportHeight >= footerTop;
+        // 只有当页面滚动位置超过footer顶部时才认为在footer区域
+        return scrollTop >= footerTop - 50;
     }
     
     handleWheel(e) {
@@ -73,19 +73,37 @@ class SectionScroller {
         
         // 检查是否在footer
         if (this.isInFooter()) {
-            this.isAtFooter = true;
             // 在footer区域
             if (direction === 'up') {
-                const footerScrollTop = window.pageYOffset - this.footer.offsetTop;
-                // 如果footer已经滚动到顶部，返回最后一个section
-                if (footerScrollTop <= 10) {
+                // 向上滚动，检查是否需要返回最后一个section
+                const footerTop = this.footer.offsetTop;
+                const currentScrollTop = window.pageYOffset;
+                
+                // 如果当前滚动位置接近footer顶部，返回最后一个section
+                if (currentScrollTop <= footerTop + 50) {
                     e.preventDefault();
                     this.isAtFooter = false;
-                    this.scrollToSection(this.sections.length - 1);
+                    this.isScrolling = true;
+                    this.currentIndex = this.sections.length - 1;
+                    
+                    const lastSection = this.sections[this.sections.length - 1];
+                    const targetScroll = lastSection.offsetTop + lastSection.offsetHeight - window.innerHeight;
+                    
+                    window.scrollTo({
+                        top: targetScroll,
+                        behavior: 'smooth'
+                    });
+                    
+                    this.updateNavigation();
+                    
+                    setTimeout(() => {
+                        this.isScrolling = false;
+                    }, this.scrollDelay);
                     return;
                 }
                 // 否则允许在footer内自由滚动
             }
+            // 在footer区域允许自由滚动
             return;
         }
         
@@ -134,12 +152,28 @@ class SectionScroller {
         
         // 检查是否在footer
         if (this.isInFooter()) {
-            this.isAtFooter = true;
             if (direction === 'up') {
-                const footerScrollTop = window.pageYOffset - this.footer.offsetTop;
-                if (footerScrollTop <= 10) {
+                const footerTop = this.footer.offsetTop;
+                const currentScrollTop = window.pageYOffset;
+                
+                if (currentScrollTop <= footerTop + 50) {
                     this.isAtFooter = false;
-                    this.scrollToSection(this.sections.length - 1);
+                    this.isScrolling = true;
+                    this.currentIndex = this.sections.length - 1;
+                    
+                    const lastSection = this.sections[this.sections.length - 1];
+                    const targetScroll = lastSection.offsetTop + lastSection.offsetHeight - window.innerHeight;
+                    
+                    window.scrollTo({
+                        top: targetScroll,
+                        behavior: 'smooth'
+                    });
+                    
+                    this.updateNavigation();
+                    
+                    setTimeout(() => {
+                        this.isScrolling = false;
+                    }, this.scrollDelay);
                     return;
                 }
             }
