@@ -906,7 +906,7 @@ body::after {
 
 .membership-benefits {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
 }
 
@@ -922,13 +922,37 @@ body::after {
     border: 1px solid rgba(96, 165, 250, 0.3);
     border-radius: 12px;
     transition: all 0.3s;
+    text-align: center;
+}
+
+.benefit-image {
+    width: 100%;
+    height: 180px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: rgba(96, 165, 250, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.benefit-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.benefit-item:hover .benefit-image img {
+    transform: scale(1.1);
 }
 
 .benefit-item:hover {
     background: rgba(96, 165, 250, 0.15);
     border-color: rgba(96, 165, 250, 0.5);
-    transform: translateX(8px);
-    box-shadow: 0 4px 16px rgba(96, 165, 250, 0.3);
+    transform: translateY(-8px);
+    box-shadow: 0 8px 24px rgba(96, 165, 250, 0.4);
 }
 
 .benefit-title {
@@ -937,20 +961,11 @@ body::after {
     color: var(--color-accent);
     margin-bottom: 12px;
     position: relative;
-    padding-left: 20px;
+    padding-left: 0;
 }
 
 .benefit-title::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 8px;
-    height: 8px;
-    background: var(--color-accent);
-    border-radius: 50%;
-    box-shadow: 0 0 10px rgba(96, 165, 250, 0.8);
+    display: none;
 }
 
 .benefit-item p {
@@ -958,7 +973,7 @@ body::after {
     font-size: 15px;
     line-height: 1.6;
     margin: 0;
-    padding-left: 20px;
+    padding-left: 0;
 }
 
 .membership-grid {
