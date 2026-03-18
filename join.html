@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>加入联盟 - 数据合规生态平台</title>
+    <link rel="stylesheet" href="css/data-compliance.css">
+    <link rel="stylesheet" href="css/join.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+</head>
+<body>
+    <canvas id="particleCanvas"></canvas>
+    
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">数据合规<span class="accent">生态平台</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="#who-can-join">谁可以加入</a></li>
+                <li><a href="#benefits">加入即享</a></li>
+                <li><a href="#process">入驻流程</a></li>
+                <li><a href="#faq">常见问题</a></li>
+                <li><a href="#apply" class="nav-cta">立即申请</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero-join">
+        <div class="hero-container">
+            <h1 class="hero-title" data-aos="zoom-in" data-aos-delay="200">加入联盟</h1>
+            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="400">成为生态伙伴 | 共享平台资源 | 共建数据安全生态</p>
+            <p class="hero-description" data-aos="fade-up" data-aos-delay="500">天津天策AI数据合规赋能联盟欢迎您</p>
+            <div class="hero-cta" data-aos="fade-up" data-aos-delay="600">
+                <button class="btn-primary" onclick="document.getElementById('apply').scrollIntoView({behavior: 'smooth'})">立即申请</button>
+                <button class="btn-secondary" onclick="document.getElementById('who-can-join').scrollIntoView({behavior: 'smooth'})">了解更多</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="who-can-join" class="who-section">
+        <div class="section-container">
+            <h2 class="section-title" data-aos="fade-up">谁可以加入</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">五大类型机构，共建数据安全生态圈</p>
+            <div class="who-grid" data-aos="fade-up" data-aos-delay="300">
+                <div class="who-card">
+                    <div class="who-icon">⚖️</div>
+                    <h3>律所</h3>
+                    <p class="who-requirement">有数据合规业务意愿</p>
+                    <div class="who-desc">
+                        <p>为律所提供数据合规领域的客户资源对接，拓展业务范围，提升专业影响力</p>
+                    </div>
+                </div>
+                <div class="who-card">
+                    <div class="who-icon">💼</div>
+                    <h3>财税机构</h3>
+                    <p class="who-requirement">有AI财税服务能力</p>
+                    <div class="who-desc">
+                        <p>连接企业财税合规需求，提供AI赋能的财税服务，开拓新业务增长点</p>
+                    </div>
+                </div>
+                <div class="who-card">
+                    <div class="who-icon">🎓</div>
+                    <h3>高校</h3>
+                    <p class="who-requirement">有相关院系/研究方向</p>
+                    <div class="who-desc">
+                        <p>产学研深度融合，为学生提供实践机会，推动数据安全领域人才培养</p>
+                    </div>
+                </div>
+                <div class="who-card">
+                    <div class="who-icon">🏢</div>
+                    <h3>企业</h3>
+                    <p class="who-requirement">有数据合规需求</p>
+                    <div class="who-desc">
+                        <p>获取专业的数据合规咨询服务，对接优质解决方案，保障业务合规发展</p>
+                    </div>
+                </div>
+                <div class="who-card">
+                    <div class="who-icon">🛡️</div>
+                    <h3>产品方</h3>
+                    <p class="who-requirement">有数据安全产品</p>
+                    <div class="who-desc">
+                        <p>获得平台背书和推广支持，精准触达目标客户，提升产品市场认可度</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="benefits" class="benefits-section">
+        <div class="section-container">
+            <h2 class="section-title" data-aos="fade-up">加入即享</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">四大核心权益，助力业务增长</p>
+            <div class="benefits-grid" data-aos="fade-up" data-aos-delay="300">
+                <div class="benefit-card">
+                    <div class="benefit-number">01</div>
+                    <div class="benefit-icon">🤝</div>
+                    <h3>资源对接</h3>
+                    <p class="benefit-highlight">精准匹配，客户主动上门</p>
+                    <p class="benefit-detail">平台根据您的服务能力和业务方向，精准匹配需求方，让优质客户主动找到您，大幅降低获客成本</p>
+                    <div class="benefit-tags">
+                        <span class="tag">精准匹配</span>
+                        <span class="tag">主动对接</span>
+                        <span class="tag">降低成本</span>
+                    </div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-number">02</div>
+                    <div class="benefit-icon">✓</div>
+                    <h3>平台背书</h3>
+                    <p class="benefit-highlight">联盟推荐，提升信任</p>
+                    <p class="benefit-detail">享受联盟品牌背书，提升企业公信力和专业形象，让客户更放心选择您的服务</p>
+                    <div class="benefit-tags">
+                        <span class="tag">品牌背书</span>
+                        <span class="tag">信任加持</span>
+                        <span class="tag">形象提升</span>
+                    </div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-number">03</div>
+                    <div class="benefit-icon">📢</div>
+                    <h3>宣传扶持</h3>
+                    <p class="benefit-highlight">曝光+投流+经验扶持，扩大声量</p>
+                    <p class="benefit-detail">获得平台多渠道宣传推广，包括官网展示、社媒曝光、活动推介，并提供营销经验指导</p>
+                    <div class="benefit-tags">
+                        <span class="tag">多渠道曝光</span>
+                        <span class="tag">流量扶持</span>
+                        <span class="tag">经验指导</span>
+                    </div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-number">04</div>
+                    <div class="benefit-icon">💡</div>
+                    <h3>智库交流</h3>
+                    <p class="benefit-highlight">同行切磋，共同成长</p>
+                    <p class="benefit-detail">参与行业研讨会、标准制定、课题研究，与同行专家交流切磋，共建数据安全智库体系</p>
+                    <div class="benefit-tags">
+                        <span class="tag">行业交流</span>
+                        <span class="tag">标准制定</span>
+                        <span class="tag">课题研究</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="process-section">
+        <div class="section-container">
+            <h2 class="section-title" data-aos="fade-up">入驻流程</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">简单四步，快速入驻</p>
+            <div class="process-timeline" data-aos="fade-up" data-aos-delay="300">
+                <div class="process-item">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="process-content">
+                        <h3>填写申请资料</h3>
+                        <p>提交机构基本信息、业务范围、服务能力等资料，让我们更好地了解您</p>
+                    </div>
+                </div>
+                <div class="process-item">
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="process-content">
+                        <h3>资质审核</h3>
+                        <p>联盟专业团队审核您的资质和能力，确保生态伙伴的专业性（1-3个工作日）</p>
+                    </div>
+                </div>
+                <div class="process-item">
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="process-content">
+                        <h3>确认合作权益</h3>
+                        <p>审核通过后，我们将与您沟通具体的合作权益和服务内容</p>
+                    </div>
+                </div>
+                <div class="process-item">
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                    </div>
+                    <div class="process-content">
+                        <h3>正式入驻</h3>
+                        <p>完成入驻手续，开始享受平台资源和服务，共建数据安全生态</p>
+                    </div>
+                </div>
+            </div>
+            <div class="process-cta" data-aos="fade-up" data-aos-delay="500">
+                <button class="btn-apply" onclick="document.getElementById('apply').scrollIntoView({behavior: 'smooth'})">立即申请</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="faq-section">
+        <div class="section-container">
+            <h2 class="section-title" data-aos="fade-up">常见问题</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">您关心的问题，我们来解答</p>
+            <div class="faq-list" data-aos="fade-up" data-aos-delay="300">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-icon">Q</span>
+                        <h3>入驻收费吗？</h3>
+                    </div>
+                    <div class="faq-answer">
+                        <span class="faq-icon answer">A</span>
+                        <p><strong>首批免费！</strong>为了快速构建数据安全生态圈，我们对首批入驻的合作伙伴提供免费入驻政策，享受全部平台权益。名额有限，先到先得！</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-icon">Q</span>
+                        <h3>审核需要多久？</h3>
+                    </div>
+                    <div class="faq-answer">
+                        <span class="faq-icon answer">A</span>
+                        <p><strong>1-3个工作日。</strong>我们会在收到申请后的1-3个工作日内完成审核，并通过电话或邮件通知您审核结果。如有特殊情况需要补充材料，我们会及时与您沟通。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-icon">Q</span>
+                        <h3>能保证对接成功吗？</h3>
+                    </div>
+                    <div class="faq-answer">
+                        <span class="faq-icon answer">A</span>
+                        <p><strong>保证对接机会，不保证成交。</strong>我们承诺为您提供精准的客户对接机会，但最终是否成交取决于双方的具体需求匹配度和商务洽谈结果。平台会持续跟进对接效果，优化匹配质量。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="apply" class="apply-section">
+        <div class="section-container">
+            <div class="apply-content" data-aos="fade-up">
+                <h2 class="section-title">立即申请入驻</h2>
+                <p class="apply-description">填写申请信息，开启合作之旅</p>
+                <div class="apply-highlights">
+                    <div class="apply-highlight">
+                        <span class="highlight-icon">✓</span>
+                        <span>首批免费入驻</span>
+                    </div>
+                    <div class="apply-highlight">
+                        <span class="highlight-icon">✓</span>
+                        <span>1-3天快速审核</span>
+                    </div>
+                    <div class="apply-highlight">
+                        <span class="highlight-icon">✓</span>
+                        <span>专属客户经理</span>
+                    </div>
+                    <div class="apply-highlight">
+                        <span class="highlight-icon">✓</span>
+                        <span>全程服务支持</span>
+                    </div>
+                </div>
+                <button class="btn-apply-now">立即申请</button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="index.html#about">平台介绍</a></li>
+                        <li><a href="index.html#services">核心业务</a></li>
+                        <li><a href="index.html#partners">合作伙伴</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li><a href="#">联系方式</a></li>
+                        <li><a href="#">商务合作</a></li>
+                        <li><a href="#">在线咨询</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>加入我们</h4>
+                    <ul>
+                        <li><a href="#apply">成为伙伴</a></li>
+                        <li><a href="#">人才招聘</a></li>
+                        <li><a href="#">合作申请</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>法律条款</h4>
+                    <ul>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">服务条款</a></li>
+                        <li><a href="#">免责声明</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 天津数据合规生态平台. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 联系弹窗 -->
+    <div id="contactModal" class="modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>申请入驻</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <form id="contactForm" class="modal-form">
+                <div class="form-group">
+                    <label for="orgName">机构名称 <span class="required">*</span></label>
+                    <input type="text" id="orgName" name="orgName" placeholder="请输入机构名称" required>
+                    <span class="error-message" id="orgNameError"></span>
+                </div>
+                <div class="form-group">
+                    <label for="orgType">机构类型 <span class="required">*</span></label>
+                    <select id="orgType" name="orgType" required>
+                        <option value="">请选择机构类型</option>
+                        <option value="law">律所</option>
+                        <option value="finance">财税机构</option>
+                        <option value="university">高校</option>
+                        <option value="enterprise">企业</option>
+                        <option value="vendor">产品方</option>
+                    </select>
+                    <span class="error-message" id="orgTypeError"></span>
+                </div>
+                <div class="form-group">
+                    <label for="orgDesc">机构介绍</label>
+                    <textarea id="orgDesc" name="orgDesc" placeholder="请简要介绍您的机构和业务范围（200字以内）" maxlength="200" rows="4"></textarea>
+                    <span class="char-count"><span id="descCount">0</span>/200</span>
+                </div>
+                <div class="form-group">
+                    <label for="contactPhone">联系方式 <span class="required">*</span></label>
+                    <input type="tel" id="contactPhone" name="contactPhone" placeholder="请输入手机号码" required>
+                    <span class="error-message" id="contactPhoneError"></span>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-cancel">取消</button>
+                    <button type="submit" class="btn-submit-form">
+                        <span class="btn-text">提交申请</span>
+                        <span class="btn-loading">提交中...</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 自定义提示框 -->
+    <div id="toast" class="toast">
+        <div class="toast-content">
+            <span class="toast-icon"></span>
+            <span class="toast-message"></span>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="js/data-compliance-particles.js"></script>
+    <script src="js/join.js"></script>
+</body>
+</html>

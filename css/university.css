@@ -1,0 +1,463 @@
+/* 高校合作专区样式 */
+
+.hero-university {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 20px 80px;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+/* 高校难题区域 */
+.challenges-section {
+    padding: 100px 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.challenges-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.challenge-card {
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.3) 0%, rgba(59, 130, 246, 0.2) 100%);
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(96, 165, 250, 0.4);
+    border-radius: 18px;
+    padding: 40px 30px;
+    text-align: center;
+    transition: all 0.4s;
+    position: relative;
+    overflow: hidden;
+}
+
+.challenge-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #ef4444, #f87171, #ef4444, transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.challenge-card:hover::before {
+    opacity: 1;
+}
+
+.challenge-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(239, 68, 68, 0.6);
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.4) 0%, rgba(96, 165, 250, 0.3) 100%);
+    box-shadow: 0 12px 32px rgba(239, 68, 68, 0.3);
+}
+
+.challenge-icon {
+    font-size: 64px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 20px rgba(239, 68, 68, 0.5));
+}
+
+.challenge-card h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 16px;
+    line-height: 1.4;
+}
+
+.challenge-card > p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.challenge-impact {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-radius: 12px;
+    padding: 12px 16px;
+    text-align: left;
+}
+
+.impact-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #ef4444;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.impact-text {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.5;
+}
+
+/* 解决方案区域 */
+.solutions-section {
+    padding: 100px 20px;
+    position: relative;
+    z-index: 10;
+    background: rgba(10, 26, 40, 0.3);
+}
+
+.solutions-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.solution-card {
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.4) 0%, rgba(59, 130, 246, 0.25) 100%);
+    backdrop-filter: blur(20px);
+    border: 3px solid rgba(96, 165, 250, 0.8);
+    border-radius: 18px;
+    padding: 40px 30px;
+    position: relative;
+    transition: all 0.4s;
+    overflow: hidden;
+}
+
+.solution-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #60a5fa, #93c5fd, #60a5fa, transparent);
+    animation: shimmer 2.5s ease-in-out infinite;
+}
+
+.solution-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 0 80px rgba(96, 165, 250, 0.8), 0 16px 60px rgba(96, 165, 250, 0.4);
+    border-color: rgba(147, 197, 253, 1);
+}
+
+.solution-number {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 48px;
+    font-weight: 900;
+    background: linear-gradient(135deg, rgba(96, 165, 250, 0.35) 0%, rgba(147, 197, 253, 0.15) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.solution-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 30px rgba(96, 165, 250, 0.9));
+}
+
+.solution-card h3 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 12px;
+    text-shadow: 0 2px 15px rgba(96, 165, 250, 0.5);
+}
+
+.solution-highlight {
+    font-size: 16px;
+    color: var(--color-accent);
+    font-weight: 600;
+    margin-bottom: 16px;
+    display: block;
+    line-height: 1.4;
+}
+
+.solution-detail {
+    margin-bottom: 20px;
+}
+
+.solution-detail p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+}
+
+.solution-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.benefit-point {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.9);
+    padding: 8px 12px;
+    background: rgba(96, 165, 250, 0.15);
+    border: 1px solid rgba(96, 165, 250, 0.3);
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+.benefit-point:hover {
+    background: rgba(96, 165, 250, 0.25);
+    border-color: rgba(96, 165, 250, 0.5);
+    transform: translateX(4px);
+}
+
+/* 合作方式区域 */
+.cooperation-section {
+    padding: 100px 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.cooperation-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cooperation-card {
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.3) 0%, rgba(59, 130, 246, 0.2) 100%);
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(96, 165, 250, 0.5);
+    border-radius: 18px;
+    padding: 40px 30px;
+    text-align: center;
+    transition: all 0.4s;
+    position: relative;
+    overflow: hidden;
+}
+
+.cooperation-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #60a5fa, #93c5fd, #60a5fa, transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.cooperation-card:hover::before {
+    opacity: 1;
+    animation: shimmer 2s ease-in-out infinite;
+}
+
+.cooperation-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(96, 165, 250, 0.8);
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.4) 0%, rgba(96, 165, 250, 0.3) 100%);
+    box-shadow: 0 12px 40px rgba(96, 165, 250, 0.5);
+}
+
+.cooperation-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, var(--color-accent) 0%, #93c5fd 100%);
+    color: white;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(96, 165, 250, 0.4);
+}
+
+.cooperation-icon {
+    font-size: 64px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 30px rgba(96, 165, 250, 0.8));
+}
+
+.cooperation-card h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 12px;
+    text-shadow: 0 2px 10px rgba(96, 165, 250, 0.4);
+}
+
+.cooperation-intro {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 24px;
+    line-height: 1.5;
+}
+
+.cooperation-process {
+    background: rgba(96, 165, 250, 0.1);
+    border: 1px solid rgba(96, 165, 250, 0.3);
+    border-radius: 12px;
+    padding: 20px 16px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.process-step-mini {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.process-step-mini:last-child {
+    margin-bottom: 0;
+}
+
+.step-num {
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(135deg, var(--color-accent) 0%, #93c5fd 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: white;
+    flex-shrink: 0;
+}
+
+.step-text {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.5;
+    flex: 1;
+}
+
+.cooperation-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.cooperation-cta {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.btn-contact {
+    padding: 16px 64px;
+    background: linear-gradient(135deg, var(--color-accent) 0%, #93c5fd 100%);
+    color: white;
+    border: none;
+    border-radius: 32px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 6px 24px rgba(96, 165, 250, 0.5);
+}
+
+.btn-contact:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 12px 40px rgba(96, 165, 250, 0.8);
+}
+
+/* 合作案例区域 */
+.cases-section {
+    padding: 100px 20px 120px;
+    position: relative;
+    z-index: 10;
+    background: rgba(10, 26, 40, 0.3);
+}
+
+.cases-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.case-placeholder {
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.3) 0%, rgba(59, 130, 246, 0.2) 100%);
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(96, 165, 250, 0.5);
+    border-radius: 18px;
+    padding: 60px 40px;
+    text-align: center;
+}
+
+.placeholder-icon {
+    font-size: 80px;
+    margin-bottom: 24px;
+    filter: drop-shadow(0 0 30px rgba(96, 165, 250, 0.6));
+}
+
+.case-placeholder p {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 12px;
+}
+
+.placeholder-sub {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0;
+}
+
+/* 表单样式增强 */
+.modal-form select {
+    padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(96, 165, 250, 0.3);
+    border-radius: 12px;
+    color: white;
+    font-size: 15px;
+    font-family: inherit;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.modal-form select:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2);
+}
+
+.modal-form select option {
+    background: #1a1b2f;
+    color: white;
+}
+
+/* 响应式设计 */
+@media (max-width: 1024px) {
+    .challenges-grid,
+    .solutions-grid,
+    .cooperation-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .challenges-grid,
+    .solutions-grid,
+    .cooperation-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .challenge-card,
+    .solution-card,
+    .cooperation-card {
+        padding: 30px 20px;
+    }
+    
+    .case-placeholder {
+        padding: 40px 30px;
+    }
+}

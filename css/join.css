@@ -1,0 +1,537 @@
+/* 加入联盟页面样式 */
+
+.hero-join {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 20px 80px;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+/* 谁可以加入区域 */
+.who-section {
+    padding: 100px 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.who-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.who-card {
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.3) 0%, rgba(59, 130, 246, 0.2) 100%);
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(96, 165, 250, 0.5);
+    border-radius: 18px;
+    padding: 32px 24px;
+    text-align: center;
+    transition: all 0.4s;
+    position: relative;
+    overflow: hidden;
+}
+
+.who-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #60a5fa, #93c5fd, #60a5fa, transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.who-card:hover::before {
+    opacity: 1;
+    animation: shimmer 2s ease-in-out infinite;
+}
+
+.who-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(96, 165, 250, 0.8);
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.4) 0%, rgba(96, 165, 250, 0.3) 100%);
+    box-shadow: 0 12px 40px rgba(96, 165, 250, 0.5);
+}
+
+.who-icon {
+    font-size: 56px;
+    margin-bottom: 16px;
+    filter: drop-shadow(0 0 30px rgba(96, 165, 250, 0.8));
+}
+
+.who-card h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 12px;
+    text-shadow: 0 2px 10px rgba(96, 165, 250, 0.4);
+}
+
+.who-requirement {
+    font-size: 13px;
+    color: var(--color-accent);
+    margin-bottom: 16px;
+    font-weight: 600;
+    padding: 6px 12px;
+    background: rgba(96, 165, 250, 0.15);
+    border-radius: 12px;
+    display: inline-block;
+}
+
+.who-desc p {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+}
+
+/* 加入即享区域 */
+.benefits-section {
+    padding: 100px 20px;
+    position: relative;
+    z-index: 10;
+    background: rgba(10, 26, 40, 0.3);
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.benefit-card {
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.4) 0%, rgba(59, 130, 246, 0.25) 100%);
+    backdrop-filter: blur(20px);
+    border: 3px solid rgba(96, 165, 250, 0.8);
+    border-radius: 18px;
+    padding: 40px 35px;
+    position: relative;
+    transition: all 0.4s;
+    overflow: hidden;
+}
+
+.benefit-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #60a5fa, #93c5fd, #60a5fa, transparent);
+    animation: shimmer 2.5s ease-in-out infinite;
+}
+
+.benefit-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 0 80px rgba(96, 165, 250, 0.8), 0 16px 60px rgba(96, 165, 250, 0.4);
+    border-color: rgba(147, 197, 253, 1);
+}
+
+.benefit-number {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 48px;
+    font-weight: 900;
+    background: linear-gradient(135deg, rgba(96, 165, 250, 0.35) 0%, rgba(147, 197, 253, 0.15) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.benefit-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 30px rgba(96, 165, 250, 0.9));
+}
+
+.benefit-card h3 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 12px;
+    text-shadow: 0 2px 15px rgba(96, 165, 250, 0.5);
+}
+
+.benefit-highlight {
+    font-size: 16px;
+    color: var(--color-accent);
+    font-weight: 600;
+    margin-bottom: 12px;
+    display: block;
+}
+
+.benefit-detail {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.benefit-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+/* 入驻流程区域 */
+.process-section {
+    padding: 100px 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.process-timeline {
+    max-width: 900px;
+    margin: 0 auto 40px;
+}
+
+.process-item {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.process-item:last-child {
+    margin-bottom: 0;
+}
+
+.process-step {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.step-number {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--color-accent) 0%, #93c5fd 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    font-weight: 700;
+    color: white;
+    box-shadow: 0 8px 24px rgba(96, 165, 250, 0.5);
+    position: relative;
+    z-index: 2;
+}
+
+.step-line {
+    width: 3px;
+    flex: 1;
+    background: linear-gradient(180deg, rgba(96, 165, 250, 0.6) 0%, rgba(96, 165, 250, 0.2) 100%);
+    margin-top: 10px;
+}
+
+.process-content {
+    flex: 1;
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.3) 0%, rgba(59, 130, 246, 0.2) 100%);
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(96, 165, 250, 0.5);
+    border-radius: 16px;
+    padding: 24px 28px;
+    transition: all 0.3s;
+}
+
+.process-content:hover {
+    transform: translateX(8px);
+    border-color: rgba(96, 165, 250, 0.8);
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.4) 0%, rgba(96, 165, 250, 0.3) 100%);
+    box-shadow: 0 8px 24px rgba(96, 165, 250, 0.4);
+}
+
+.process-content h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 12px;
+}
+
+.process-content p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+}
+
+.process-cta {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.btn-apply {
+    padding: 16px 64px;
+    background: linear-gradient(135deg, var(--color-accent) 0%, #93c5fd 100%);
+    color: white;
+    border: none;
+    border-radius: 32px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 6px 24px rgba(96, 165, 250, 0.5);
+}
+
+.btn-apply:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 12px 40px rgba(96, 165, 250, 0.8);
+}
+
+/* 常见问题区域 */
+.faq-section {
+    padding: 100px 20px;
+    position: relative;
+    z-index: 10;
+    background: rgba(10, 26, 40, 0.3);
+}
+
+.faq-list {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.faq-item {
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.3) 0%, rgba(59, 130, 246, 0.2) 100%);
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(96, 165, 250, 0.5);
+    border-radius: 16px;
+    padding: 32px;
+    transition: all 0.3s;
+}
+
+.faq-item:hover {
+    border-color: rgba(96, 165, 250, 0.8);
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.4) 0%, rgba(96, 165, 250, 0.3) 100%);
+    box-shadow: 0 8px 24px rgba(96, 165, 250, 0.4);
+}
+
+.faq-question {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.faq-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--color-accent) 0%, #93c5fd 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(96, 165, 250, 0.4);
+}
+
+.faq-icon.answer {
+    background: linear-gradient(135deg, rgba(96, 165, 250, 0.3) 0%, rgba(59, 130, 246, 0.2) 100%);
+    border: 2px solid rgba(96, 165, 250, 0.6);
+}
+
+.faq-question h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.faq-answer {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding-left: 0;
+}
+
+.faq-answer p {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.7;
+    flex: 1;
+}
+
+.faq-answer strong {
+    color: var(--color-accent);
+    font-weight: 600;
+}
+
+/* 申请入驻区域 */
+.apply-section {
+    padding: 100px 20px 120px;
+    position: relative;
+    z-index: 10;
+}
+
+.apply-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.4) 0%, rgba(59, 130, 246, 0.25) 100%);
+    backdrop-filter: blur(20px);
+    border: 3px solid rgba(96, 165, 250, 0.8);
+    border-radius: 24px;
+    padding: 60px 50px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 60px rgba(96, 165, 250, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.apply-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #60a5fa, #93c5fd, #60a5fa, transparent);
+    animation: shimmer 2.5s ease-in-out infinite;
+}
+
+.apply-description {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 32px;
+}
+
+.apply-highlights {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+.apply-highlight {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background: rgba(96, 165, 250, 0.1);
+    border: 1px solid rgba(96, 165, 250, 0.3);
+    border-radius: 12px;
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.9);
+    transition: all 0.3s;
+}
+
+.apply-highlight:hover {
+    background: rgba(96, 165, 250, 0.2);
+    border-color: rgba(96, 165, 250, 0.5);
+    transform: translateY(-2px);
+}
+
+.highlight-icon {
+    font-size: 20px;
+    color: var(--color-accent);
+    font-weight: 700;
+}
+
+.btn-apply-now {
+    padding: 18px 72px;
+    background: linear-gradient(135deg, var(--color-accent) 0%, #93c5fd 100%);
+    color: white;
+    border: none;
+    border-radius: 32px;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 6px 24px rgba(96, 165, 250, 0.5);
+}
+
+.btn-apply-now:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 12px 40px rgba(96, 165, 250, 0.8);
+}
+
+/* 表单样式增强 */
+.modal-form select {
+    padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(96, 165, 250, 0.3);
+    border-radius: 12px;
+    color: white;
+    font-size: 15px;
+    font-family: inherit;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.modal-form select:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2);
+}
+
+.modal-form select option {
+    background: #1a1b2f;
+    color: white;
+}
+
+/* 响应式设计 */
+@media (max-width: 1200px) {
+    .who-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 1024px) {
+    .who-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .who-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .process-item {
+        gap: 20px;
+    }
+    
+    .step-number {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+    }
+    
+    .process-content {
+        padding: 20px;
+    }
+    
+    .apply-highlights {
+        grid-template-columns: 1fr;
+    }
+    
+    .apply-content {
+        padding: 40px 30px;
+    }
+    
+    .who-card,
+    .benefit-card,
+    .faq-item {
+        padding: 24px 20px;
+    }
+}

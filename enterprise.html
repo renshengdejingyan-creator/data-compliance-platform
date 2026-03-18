@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>企业服务专区 - 数据合规生态平台</title>
+    <link rel="stylesheet" href="css/data-compliance.css">
+    <link rel="stylesheet" href="css/enterprise.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+</head>
+<body>
+    <canvas id="particleCanvas"></canvas>
+    
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">数据合规<span class="accent">生态平台</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="#risks">企业痛点</a></li>
+                <li><a href="#services">我们的服务</a></li>
+                <li><a href="#benefits">专属权益</a></li>
+                <li><a href="#start">立即开始</a></li>
+                <li><a href="index.html#join" class="nav-cta">加入联盟</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero-enterprise">
+        <div class="hero-container">
+            <h1 class="hero-title" data-aos="zoom-in" data-aos-delay="200">AI营销，别踩红线</h1>
+            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="400">一站式合规解决方案 | 让企业安心做营销</p>
+            <p class="hero-description" data-aos="fade-up" data-aos-delay="500">我们帮你规避风险，专注增长</p>
+            <div class="hero-cta" data-aos="fade-up" data-aos-delay="600">
+                <button class="btn-primary" onclick="openContactModal('体检')">预约合规体检</button>
+                <button class="btn-secondary" onclick="openContactModal('备案')">咨询备案事宜</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="risks" class="risks-section">
+        <div class="section-container">
+            <h2 class="section-title" data-aos="fade-up">企业常见合规风险</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">这些问题，我们一站式解决</p>
+            <div class="risks-grid" data-aos="fade-up" data-aos-delay="300">
+                <div class="risk-card">
+                    <div class="risk-icon">⚠️</div>
+                    <h3>文案夸大被下架？</h3>
+                    <p>AI生成的营销文案容易出现夸大宣传、虚假承诺等问题，导致产品被平台下架，品牌受损</p>
+                    <div class="risk-consequence">
+                        <span class="consequence-label">后果：</span>
+                        <span class="consequence-text">罚款、下架、品牌信誉受损</span>
+                    </div>
+                </div>
+                <div class="risk-card">
+                    <div class="risk-icon">🔒</div>
+                    <h3>用户数据不敢碰？</h3>
+                    <p>不清楚数据收集、存储、使用的合规边界，担心触碰法律红线，影响业务开展</p>
+                    <div class="risk-consequence">
+                        <span class="consequence-label">后果：</span>
+                        <span class="consequence-text">业务受限、用户流失、法律风险</span>
+                    </div>
+                </div>
+                <div class="risk-card">
+                    <div class="risk-icon">©️</div>
+                    <h3>AI生成内容侵权？</h3>
+                    <p>AI生成的图片、文字、视频可能侵犯他人版权，企业面临侵权诉讼和赔偿风险</p>
+                    <div class="risk-consequence">
+                        <span class="consequence-label">后果：</span>
+                        <span class="consequence-text">侵权诉讼、高额赔偿、业务中断</span>
+                    </div>
+                </div>
+                <div class="risk-card">
+                    <div class="risk-icon">📋</div>
+                    <h3>备案不知道找谁？</h3>
+                    <p>AI应用需要备案，但流程复杂、材料繁琐，不知道从何下手，耽误业务上线</p>
+                    <div class="risk-consequence">
+                        <span class="consequence-label">后果：</span>
+                        <span class="consequence-text">业务延期、错失市场机会</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services-section">
+        <div class="section-container">
+            <h2 class="section-title" data-aos="fade-up">我们能为你做什么</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">四大服务，打包带走</p>
+            <div class="services-grid" data-aos="fade-up" data-aos-delay="300">
+                <div class="service-card">
+                    <div class="service-number">01</div>
+                    <div class="service-icon">📋</div>
+                    <h3>AI备案辅导</h3>
+                    <p class="service-highlight">从材料准备到提交，全程陪跑</p>
+                    <div class="service-detail">
+                        <p>专业团队协助准备备案材料，梳理业务流程，填写申报表格，跟进审核进度，确保一次性通过。</p>
+                    </div>
+                    <div class="service-process">
+                        <div class="process-mini">
+                            <span class="mini-num">1</span>
+                            <span>材料准备</span>
+                        </div>
+                        <div class="process-mini">
+                            <span class="mini-num">2</span>
+                            <span>表格填写</span>
+                        </div>
+                        <div class="process-mini">
+                            <span class="mini-num">3</span>
+                            <span>提交审核</span>
+                        </div>
+                        <div class="process-mini">
+                            <span class="mini-num">4</span>
+                            <span>跟进反馈</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-number">02</div>
+                    <div class="service-icon">🔍</div>
+                    <h3>营销合规审查</h3>
+                    <p class="service-highlight">文案、素材、话术，逐一排雷</p>
+                    <div class="service-detail">
+                        <p>对营销文案、宣传素材、销售话术进行全面审查，识别夸大宣传、虚假承诺等风险点，提供修改建议。</p>
+                    </div>
+                    <div class="service-process">
+                        <div class="process-mini">
+                            <span class="mini-num">1</span>
+                            <span>文案审查</span>
+                        </div>
+                        <div class="process-mini">
+                            <span class="mini-num">2</span>
+                            <span>素材检测</span>
+                        </div>
+                        <div class="process-mini">
+                            <span class="mini-num">3</span>
+                            <span>话术优化</span>
+                        </div>
+                        <div class="process-mini">
+                            <span class="mini-num">4</span>
+                            <span>风险报告</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-number">03</div>
+                    <div class="service-icon">🛡️</div>
+                    <h3>数据安全评估</h3>
+                    <p class="service-highlight">收集、存储、使用，全流程体检</p>
+                    <div class="service-detail">
+                        <p>对企业数据处理全流程进行安全评估，识别数据泄露、滥用等风险，提供整改方案和技术支持。</p>
+                    </div>
+                    <div class="service-process">
+                        <div class="process-mini">
+                            <span class="mini-num">1</span>
+                            <span>收集评估</span>
+                        </div>
+                        <div class="process-mini">
+                            <span class="mini-num">2</span>
+                            <span>存储检查</span>
+                        </div>
+                        <div class="process-mini">
+                            <span class="mini-num">3</span>
+                            <span>使用审计</span>
+                        </div>
+                        <div class="process-mini">
+                            <span class="mini-num">4</span>
+                            <span>整改方案</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-number">04</div>
+                    <div class="service-icon">📚</div>
+                    <h3>合规培训</h3>
+                    <p class="service-highlight">团队学会了，以后自己就能做</p>
+                    <div class="service-detail">
+                        <p>为企业团队提供系统的合规培训，涵盖法律法规、操作规范、风险识别等内容，提升团队合规意识和能力。</p>
+                    </div>
+                    <div class="service-process">
+                        <div class="process-mini">
+                            <span class="mini-num">1</span>
+                            <span>法规解读</span>
+                        </div>
+                        <div class="process-mini">
+                            <span class="mini-num">2</span>
+                            <span>案例分析</span>
+                        </div>
+                        <div class="process-mini">
+                            <span class="mini-num">3</span>
+                            <span>实操演练</span>
+                        </div>
+                        <div class="process-mini">
+                            <span class="mini-num">4</span>
+                            <span>考核认证</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="benefits" class="benefits-section">
+        <div class="section-container">
+            <h2 class="section-title" data-aos="fade-up">合规企业专属权益</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">完成合规服务后，即可享受</p>
+            <div class="benefits-grid" data-aos="fade-up" data-aos-delay="300">
+                <div class="benefit-card">
+                    <div class="benefit-badge">推荐</div>
+                    <div class="benefit-icon">✓</div>
+                    <h3>"合规推荐企业"标识</h3>
+                    <p class="benefit-intro">官网展示，客户更信任</p>
+                    <div class="benefit-detail">
+                        <p>获得联盟颁发的"合规推荐企业"认证标识，可在官网、宣传材料中展示，提升企业公信力和客户信任度。</p>
+                    </div>
+                    <div class="benefit-features">
+                        <div class="feature-item">✓ 官网认证展示</div>
+                        <div class="feature-item">✓ 电子证书颁发</div>
+                        <div class="feature-item">✓ 品牌信誉提升</div>
+                    </div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-badge">热门</div>
+                    <div class="benefit-icon">📢</div>
+                    <h3>宣传扶持计划</h3>
+                    <p class="benefit-intro">曝光+投流经验支持</p>
+                    <div class="benefit-detail">
+                        <p>获得平台多渠道宣传推广支持，包括官网展示、社媒曝光、活动推介，并提供投流经验指导，助力业务增长。</p>
+                    </div>
+                    <div class="benefit-features">
+                        <div class="feature-item">✓ 平台官网展示</div>
+                        <div class="feature-item">✓ 社媒渠道曝光</div>
+                        <div class="feature-item">✓ 投流经验指导</div>
+                    </div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-badge">优选</div>
+                    <div class="benefit-icon">🛒</div>
+                    <h3>产品采购背书</h3>
+                    <p class="benefit-intro">严选产品，售后协调</p>
+                    <div class="benefit-detail">
+                        <p>优先推荐联盟严选的数据安全产品，享受平台背书和优惠价格，出现问题平台协助协调解决。</p>
+                    </div>
+                    <div class="benefit-features">
+                        <div class="feature-item">✓ 严选产品推荐</div>
+                        <div class="feature-item">✓ 优惠价格支持</div>
+                        <div class="feature-item">✓ 售后问题协调</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="start" class="start-section">
+        <div class="section-container">
+            <div class="start-content" data-aos="fade-up">
+                <h2 class="section-title">立即开始</h2>
+                <p class="start-description">让合规成为企业增长的助推器，而不是绊脚石</p>
+                <div class="start-features">
+                    <div class="start-feature">
+                        <span class="feature-icon">✓</span>
+                        <span>专业团队服务</span>
+                    </div>
+                    <div class="start-feature">
+                        <span class="feature-icon">✓</span>
+                        <span>一站式解决方案</span>
+                    </div>
+                    <div class="start-feature">
+                        <span class="feature-icon">✓</span>
+                        <span>全程跟进指导</span>
+                    </div>
+                    <div class="start-feature">
+                        <span class="feature-icon">✓</span>
+                        <span>专属权益保障</span>
+                    </div>
+                </div>
+                <div class="start-buttons">
+                    <button class="btn-start-primary" onclick="openContactModal('体检')">预约合规体检</button>
+                    <button class="btn-start-secondary" onclick="openContactModal('备案')">咨询备案事宜</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="about.html">平台介绍</a></li>
+                        <li><a href="index.html#services">核心业务</a></li>
+                        <li><a href="index.html#partners">合作伙伴</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li><a href="#">联系方式</a></li>
+                        <li><a href="#">商务合作</a></li>
+                        <li><a href="#">在线咨询</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>加入我们</h4>
+                    <ul>
+                        <li><a href="join.html">成为伙伴</a></li>
+                        <li><a href="#">人才招聘</a></li>
+                        <li><a href="#">合作申请</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>法律条款</h4>
+                    <ul>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">服务条款</a></li>
+                        <li><a href="#">免责声明</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 天津数据合规生态平台. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 联系弹窗 -->
+    <div id="contactModal" class="modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">联系我们</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <form id="contactForm" class="modal-form">
+                <div class="form-group">
+                    <label for="companyName">企业名称 <span class="required">*</span></label>
+                    <input type="text" id="companyName" name="companyName" placeholder="请输入企业名称" required>
+                    <span class="error-message" id="companyNameError"></span>
+                </div>
+                <div class="form-group">
+                    <label for="serviceType">服务需求 <span class="required">*</span></label>
+                    <select id="serviceType" name="serviceType" required>
+                        <option value="">请选择服务类型</option>
+                        <option value="filing">AI备案辅导</option>
+                        <option value="review">营销合规审查</option>
+                        <option value="assessment">数据安全评估</option>
+                        <option value="training">合规培训</option>
+                        <option value="checkup">合规体检</option>
+                        <option value="other">其他服务</option>
+                    </select>
+                    <span class="error-message" id="serviceTypeError"></span>
+                </div>
+                <div class="form-group">
+                    <label for="serviceDesc">需求描述</label>
+                    <textarea id="serviceDesc" name="serviceDesc" placeholder="请简要描述您的需求（200字以内）" maxlength="200" rows="4"></textarea>
+                    <span class="char-count"><span id="descCount">0</span>/200</span>
+                </div>
+                <div class="form-group">
+                    <label for="contactPhone">联系方式 <span class="required">*</span></label>
+                    <input type="tel" id="contactPhone" name="contactPhone" placeholder="请输入手机号码" required>
+                    <span class="error-message" id="contactPhoneError"></span>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-cancel">取消</button>
+                    <button type="submit" class="btn-submit-form">
+                        <span class="btn-text">提交</span>
+                        <span class="btn-loading">提交中...</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 自定义提示框 -->
+    <div id="toast" class="toast">
+        <div class="toast-content">
+            <span class="toast-icon"></span>
+            <span class="toast-message"></span>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="js/data-compliance-particles.js"></script>
+    <script src="js/enterprise.js"></script>
+</body>
+</html>

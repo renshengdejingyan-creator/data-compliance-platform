@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高校合作专区 - 数据合规生态平台</title>
+    <link rel="stylesheet" href="css/data-compliance.css">
+    <link rel="stylesheet" href="css/university.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+</head>
+<body>
+    <canvas id="particleCanvas"></canvas>
+    
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">数据合规<span class="accent">生态平台</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="#challenges">高校难题</a></li>
+                <li><a href="#solutions">我们的方案</a></li>
+                <li><a href="#cooperation">合作方式</a></li>
+                <li><a href="index.html#join" class="nav-cta">加入联盟</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero-university">
+        <div class="hero-container">
+            <h1 class="hero-title" data-aos="zoom-in" data-aos-delay="200">高校合作专区</h1>
+            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="400">产学研深度融合 | 真实课题 | 实战平台</p>
+            <p class="hero-description" data-aos="fade-up" data-aos-delay="500">让科研接地气，让学生有实战</p>
+            <div class="hero-cta" data-aos="fade-up" data-aos-delay="600">
+                <button class="btn-primary" onclick="openContactModal()">洽谈合作</button>
+                <button class="btn-secondary" onclick="document.getElementById('challenges').scrollIntoView({behavior: 'smooth'})">了解更多</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="challenges" class="challenges-section">
+        <div class="section-container">
+            <h2 class="section-title" data-aos="fade-up">你的难题</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">高校在数据安全领域面临的三大挑战</p>
+            <div class="challenges-grid" data-aos="fade-up" data-aos-delay="300">
+                <div class="challenge-card">
+                    <div class="challenge-icon">📊</div>
+                    <h3>研究课题找不到<br>真实数据？</h3>
+                    <p>理论研究与产业实践脱节，缺乏真实的企业数据和案例支撑，研究成果难以落地应用</p>
+                    <div class="challenge-impact">
+                        <span class="impact-label">影响：</span>
+                        <span class="impact-text">科研成果转化率低，学术影响力受限</span>
+                    </div>
+                </div>
+                <div class="challenge-card">
+                    <div class="challenge-icon">🎯</div>
+                    <h3>学生实习找不到<br>对口企业？</h3>
+                    <p>数据安全领域专业性强，对口实习岗位少，学生缺乏实战经验，就业竞争力不足</p>
+                    <div class="challenge-impact">
+                        <span class="impact-label">影响：</span>
+                        <span class="impact-text">学生就业难度大，企业招聘成本高</span>
+                    </div>
+                </div>
+                <div class="challenge-card">
+                    <div class="challenge-icon">🏗️</div>
+                    <h3>学科建设缺<br>产业资源？</h3>
+                    <p>缺少与头部企业、律所的深度合作，实验室建设、课程设计缺乏产业视角和资源支持</p>
+                    <div class="challenge-impact">
+                        <span class="impact-label">影响：</span>
+                        <span class="impact-text">学科发展滞后，人才培养质量难提升</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="solutions" class="solutions-section">
+        <div class="section-container">
+            <h2 class="section-title" data-aos="fade-up">我们能给你什么</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">三大核心资源，助力高校发展</p>
+            <div class="solutions-grid" data-aos="fade-up" data-aos-delay="300">
+                <div class="solution-card">
+                    <div class="solution-number">01</div>
+                    <div class="solution-icon">📝</div>
+                    <h3>课题来源</h3>
+                    <p class="solution-highlight">联盟企业提交的真实合规问题，直接作为研究素材</p>
+                    <div class="solution-detail">
+                        <p>平台汇聚大量企业真实的数据合规问题和需求，这些都可以转化为高校的研究课题。从AI营销合规、数据安全评估到隐私保护技术，涵盖多个研究方向。</p>
+                    </div>
+                    <div class="solution-benefits">
+                        <div class="benefit-point">✓ 真实企业案例</div>
+                        <div class="benefit-point">✓ 多样化研究方向</div>
+                        <div class="benefit-point">✓ 成果易于转化</div>
+                    </div>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-number">02</div>
+                    <div class="solution-icon">🏢</div>
+                    <h3>实训基地</h3>
+                    <p class="solution-highlight">律所、企业、平台三方共建，学生有去处、有实战</p>
+                    <div class="solution-detail">
+                        <p>联盟内的律所、财税机构、企业共同提供实习岗位，配备专业导师带教。学生可以参与真实的数据合规项目，积累实战经验。</p>
+                    </div>
+                    <div class="solution-benefits">
+                        <div class="benefit-point">✓ 对口实习岗位</div>
+                        <div class="benefit-point">✓ 专业导师带教</div>
+                        <div class="benefit-point">✓ 真实项目实战</div>
+                    </div>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-number">03</div>
+                    <div class="solution-icon">🔬</div>
+                    <h3>联合实验室</h3>
+                    <p class="solution-highlight">与头部机构共建，提升学科影响力</p>
+                    <div class="solution-detail">
+                        <p>平台协助高校与头部律所、科技企业共建数据安全联合实验室，共享技术资源、数据资源，联合申报课题，提升学科建设水平和行业影响力。</p>
+                    </div>
+                    <div class="solution-benefits">
+                        <div class="benefit-point">✓ 头部机构合作</div>
+                        <div class="benefit-point">✓ 资源共享共建</div>
+                        <div class="benefit-point">✓ 提升学科影响</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cooperation" class="cooperation-section">
+        <div class="section-container">
+            <h2 class="section-title" data-aos="fade-up">合作方式</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">灵活多样的合作模式，满足不同需求</p>
+            <div class="cooperation-grid" data-aos="fade-up" data-aos-delay="300">
+                <div class="cooperation-card">
+                    <div class="cooperation-badge">推荐</div>
+                    <div class="cooperation-icon">📚</div>
+                    <h3>课题合作</h3>
+                    <p class="cooperation-intro">企业出题，师生解题，成果共享</p>
+                    <div class="cooperation-process">
+                        <div class="process-step-mini">
+                            <span class="step-num">1</span>
+                            <span class="step-text">企业提出真实合规问题</span>
+                        </div>
+                        <div class="process-step-mini">
+                            <span class="step-num">2</span>
+                            <span class="step-text">高校师生组队研究</span>
+                        </div>
+                        <div class="process-step-mini">
+                            <span class="step-num">3</span>
+                            <span class="step-text">形成解决方案或研究报告</span>
+                        </div>
+                        <div class="process-step-mini">
+                            <span class="step-num">4</span>
+                            <span class="step-text">成果共享，企业应用</span>
+                        </div>
+                    </div>
+                    <div class="cooperation-tags">
+                        <span class="tag">真实课题</span>
+                        <span class="tag">成果转化</span>
+                        <span class="tag">学术产出</span>
+                    </div>
+                </div>
+                <div class="cooperation-card">
+                    <div class="cooperation-badge">热门</div>
+                    <div class="cooperation-icon">👨‍🎓</div>
+                    <h3>实习合作</h3>
+                    <p class="cooperation-intro">定向输送，企业带教，择优录用</p>
+                    <div class="cooperation-process">
+                        <div class="process-step-mini">
+                            <span class="step-num">1</span>
+                            <span class="step-text">企业提供实习岗位需求</span>
+                        </div>
+                        <div class="process-step-mini">
+                            <span class="step-num">2</span>
+                            <span class="step-text">高校推荐优秀学生</span>
+                        </div>
+                        <div class="process-step-mini">
+                            <span class="step-num">3</span>
+                            <span class="step-text">企业导师一对一带教</span>
+                        </div>
+                        <div class="process-step-mini">
+                            <span class="step-num">4</span>
+                            <span class="step-text">表现优秀者可直接录用</span>
+                        </div>
+                    </div>
+                    <div class="cooperation-tags">
+                        <span class="tag">对口岗位</span>
+                        <span class="tag">实战经验</span>
+                        <span class="tag">就业机会</span>
+                    </div>
+                </div>
+                <div class="cooperation-card">
+                    <div class="cooperation-badge">长期</div>
+                    <div class="cooperation-icon">📄</div>
+                    <h3>研究合作</h3>
+                    <p class="cooperation-intro">联合发布报告</p>
+                    <div class="cooperation-process">
+                        <div class="process-step-mini">
+                            <span class="step-num">1</span>
+                            <span class="step-text">确定研究主题和方向</span>
+                        </div>
+                        <div class="process-step-mini">
+                            <span class="step-num">2</span>
+                            <span class="step-text">高校提供学术支持</span>
+                        </div>
+                        <div class="process-step-mini">
+                            <span class="step-num">3</span>
+                            <span class="step-text">企业提供数据和案例</span>
+                        </div>
+                        <div class="process-step-mini">
+                            <span class="step-num">4</span>
+                            <span class="step-text">联合发布行业研究报告</span>
+                        </div>
+                    </div>
+                    <div class="cooperation-tags">
+                        <span class="tag">行业报告</span>
+                        <span class="tag">学术影响</span>
+                        <span class="tag">品牌提升</span>
+                    </div>
+                </div>
+            </div>
+            <div class="cooperation-cta" data-aos="fade-up" data-aos-delay="500">
+                <button class="btn-contact" onclick="openContactModal()">洽谈合作</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="cases-section">
+        <div class="section-container">
+            <h2 class="section-title" data-aos="fade-up">合作案例</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">已有多所高校加入联盟，开展深度合作</p>
+            <div class="cases-content" data-aos="fade-up" data-aos-delay="300">
+                <div class="case-placeholder">
+                    <div class="placeholder-icon">🎓</div>
+                    <p>更多合作案例正在筹备中</p>
+                    <p class="placeholder-sub">期待与您的高校共同开创产学研合作新模式</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="index.html#about">平台介绍</a></li>
+                        <li><a href="index.html#services">核心业务</a></li>
+                        <li><a href="index.html#partners">合作伙伴</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li><a href="#">联系方式</a></li>
+                        <li><a href="#">商务合作</a></li>
+                        <li><a href="#">在线咨询</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>加入我们</h4>
+                    <ul>
+                        <li><a href="join.html">成为伙伴</a></li>
+                        <li><a href="#">人才招聘</a></li>
+                        <li><a href="#">合作申请</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>法律条款</h4>
+                    <ul>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">服务条款</a></li>
+                        <li><a href="#">免责声明</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 天津数据合规生态平台. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 联系弹窗 -->
+    <div id="contactModal" class="modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>洽谈合作</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <form id="contactForm" class="modal-form">
+                <div class="form-group">
+                    <label for="universityName">高校名称 <span class="required">*</span></label>
+                    <input type="text" id="universityName" name="universityName" placeholder="请输入高校名称" required>
+                    <span class="error-message" id="universityNameError"></span>
+                </div>
+                <div class="form-group">
+                    <label for="department">院系/部门 <span class="required">*</span></label>
+                    <input type="text" id="department" name="department" placeholder="请输入院系或部门名称" required>
+                    <span class="error-message" id="departmentError"></span>
+                </div>
+                <div class="form-group">
+                    <label for="cooperationType">合作意向 <span class="required">*</span></label>
+                    <select id="cooperationType" name="cooperationType" required>
+                        <option value="">请选择合作方式</option>
+                        <option value="project">课题合作</option>
+                        <option value="internship">实习合作</option>
+                        <option value="research">研究合作</option>
+                        <option value="lab">联合实验室</option>
+                        <option value="other">其他合作</option>
+                    </select>
+                    <span class="error-message" id="cooperationTypeError"></span>
+                </div>
+                <div class="form-group">
+                    <label for="cooperationDesc">合作需求</label>
+                    <textarea id="cooperationDesc" name="cooperationDesc" placeholder="请简要描述您的合作需求（200字以内）" maxlength="200" rows="4"></textarea>
+                    <span class="char-count"><span id="descCount">0</span>/200</span>
+                </div>
+                <div class="form-group">
+                    <label for="contactPhone">联系方式 <span class="required">*</span></label>
+                    <input type="tel" id="contactPhone" name="contactPhone" placeholder="请输入手机号码" required>
+                    <span class="error-message" id="contactPhoneError"></span>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-cancel">取消</button>
+                    <button type="submit" class="btn-submit-form">
+                        <span class="btn-text">提交</span>
+                        <span class="btn-loading">提交中...</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 自定义提示框 -->
+    <div id="toast" class="toast">
+        <div class="toast-content">
+            <span class="toast-icon"></span>
+            <span class="toast-message"></span>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="js/data-compliance-particles.js"></script>
+    <script src="js/university.js"></script>
+</body>
+</html>

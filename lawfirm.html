@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>律所财税专区 - 数据合规生态平台</title>
+    <link rel="stylesheet" href="css/data-compliance.css">
+    <link rel="stylesheet" href="css/lawfirm.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+</head>
+<body>
+    <canvas id="particleCanvas"></canvas>
+    
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">数据合规<span class="accent">生态平台</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="#intro">我们的价值</a></li>
+                <li><a href="#business">业务方向</a></li>
+                <li><a href="#support">平台支持</a></li>
+                <li><a href="#process">入驻流程</a></li>
+                <li><a href="join.html" class="nav-cta">立即入驻</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero-lawfirm">
+        <div class="hero-container">
+            <h1 class="hero-title" data-aos="zoom-in" data-aos-delay="200">拓客难？业务卷？<br>我们帮你破局</h1>
+            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="400">律所·财税机构专属合作平台</p>
+            <p class="hero-description" data-aos="fade-up" data-aos-delay="500">精准客户对接 | 业务资源共享 | 专家智库支持</p>
+            <div class="hero-cta" data-aos="fade-up" data-aos-delay="600">
+                <button class="btn-primary" onclick="window.location.href='join.html'">立即申请入驻</button>
+                <button class="btn-secondary" onclick="document.getElementById('intro').scrollIntoView({behavior: 'smooth'})">了解更多</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="intro" class="intro-section">
+        <div class="section-container">
+            <h2 class="section-title" data-aos="fade-up">我们能为你做什么</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">连接需求，创造价值</p>
+            <div class="intro-content" data-aos="fade-up" data-aos-delay="300">
+                <div class="intro-main-card">
+                    <div class="intro-icon">🤝</div>
+                    <h3>精准客户对接</h3>
+                    <p class="intro-highlight">联盟汇聚上百家有数据合规需求的企业，涵盖AI营销、数据出境、数据资产入账等场景。</p>
+                    <p class="intro-desc">你提供服务，我们对接客户。</p>
+                    <div class="intro-stats">
+                        <div class="stat-box">
+                            <div class="stat-number">100+</div>
+                            <div class="stat-label">合作企业</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">律所财税机构</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">200+</div>
+                            <div class="stat-label">成功对接案例</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="intro-features">
+                    <div class="feature-box">
+                        <div class="feature-icon">🎯</div>
+                        <h4>需求精准匹配</h4>
+                        <p>根据你的专业领域和服务能力，精准匹配有真实需求的企业客户</p>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon">💼</div>
+                        <h4>业务持续增长</h4>
+                        <p>平台持续导入新客户，让你的业务管道始终充盈，告别淡季焦虑</p>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon">🌟</div>
+                        <h4>品牌影响力提升</h4>
+                        <p>通过平台背书和案例展示，快速提升在数据合规领域的专业影响力</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="business" class="business-section">
+        <div class="section-container">
+            <h2 class="section-title" data-aos="fade-up">你可以参与的业务方向</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">四大合规新赛道</p>
+            <div class="business-grid" data-aos="fade-up" data-aos-delay="300">
+                <div class="business-card">
+                    <div class="business-number">01</div>
+                    <div class="business-icon">📱</div>
+                    <h3>AI营销合规</h3>
+                    <p class="business-intro">AI时代营销合规的新机遇</p>
+                    <div class="business-services">
+                        <div class="service-tag">文案审查</div>
+                        <div class="service-tag">备案辅导</div>
+                        <div class="service-tag">风险排查</div>
+                    </div>
+                    <div class="business-detail">
+                        <p>帮助企业审查AI生成的营销内容，辅导完成AI应用备案，排查营销活动中的合规风险。</p>
+                    </div>
+                    <div class="business-demand">
+                        <span class="demand-label">市场需求：</span>
+                        <span class="demand-level high">★★★★★</span>
+                    </div>
+                </div>
+                <div class="business-card">
+                    <div class="business-number">02</div>
+                    <div class="business-icon">🌐</div>
+                    <h3>数据出境合规</h3>
+                    <p class="business-intro">跨境业务必备的合规服务</p>
+                    <div class="business-services">
+                        <div class="service-tag">评估</div>
+                        <div class="service-tag">申报</div>
+                        <div class="service-tag">整改辅导</div>
+                    </div>
+                    <div class="business-detail">
+                        <p>为有跨境业务的企业提供数据出境安全评估、申报材料准备、整改方案制定等服务。</p>
+                    </div>
+                    <div class="business-demand">
+                        <span class="demand-label">市场需求：</span>
+                        <span class="demand-level high">★★★★☆</span>
+                    </div>
+                </div>
+                <div class="business-card">
+                    <div class="business-number">03</div>
+                    <div class="business-icon">💰</div>
+                    <h3>数据资产入账</h3>
+                    <p class="business-intro">数据要素市场的新蓝海</p>
+                    <div class="business-services">
+                        <div class="service-tag">确权</div>
+                        <div class="service-tag">评估</div>
+                        <div class="service-tag">财税处理</div>
+                    </div>
+                    <div class="business-detail">
+                        <p>协助企业完成数据资产确权、价值评估、入账核算、税务处理等全流程服务。</p>
+                    </div>
+                    <div class="business-demand">
+                        <span class="demand-label">市场需求：</span>
+                        <span class="demand-level medium">★★★★☆</span>
+                    </div>
+                </div>
+                <div class="business-card">
+                    <div class="business-number">04</div>
+                    <div class="business-icon">🔒</div>
+                    <h3>隐私保护合规</h3>
+                    <p class="business-intro">用户隐私保护的刚需服务</p>
+                    <div class="business-services">
+                        <div class="service-tag">隐私政策</div>
+                        <div class="service-tag">用户协议</div>
+                        <div class="service-tag">合规审计</div>
+                    </div>
+                    <div class="business-detail">
+                        <p>帮助企业制定隐私政策、完善用户协议、开展隐私合规审计，确保用户数据处理合法合规。</p>
+                    </div>
+                    <div class="business-demand">
+                        <span class="demand-label">市场需求：</span>
+                        <span class="demand-level high">★★★★★</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="support" class="support-section">
+        <div class="section-container">
+            <h2 class="section-title" data-aos="fade-up">我们如何支持你</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">四大支持体系，助力业务增长</p>
+            <div class="support-grid" data-aos="fade-up" data-aos-delay="300">
+                <div class="support-card">
+                    <div class="support-icon">📦</div>
+                    <h3>服务模块+工具包</h3>
+                    <p class="support-highlight">标准化交付物，拿来就能用</p>
+                    <div class="support-detail">
+                        <p>提供标准化的服务模板、合同范本、检查清单、报告模板等工具包，降低服务成本，提升交付效率。</p>
+                    </div>
+                    <div class="support-items">
+                        <div class="support-item">✓ 服务流程模板</div>
+                        <div class="support-item">✓ 合同文本范本</div>
+                        <div class="support-item">✓ 审查清单工具</div>
+                        <div class="support-item">✓ 报告输出模板</div>
+                    </div>
+                </div>
+                <div class="support-card">
+                    <div class="support-icon">👥</div>
+                    <h3>专家智库支持</h3>
+                    <p class="support-highlight">疑难问题有人一起商量</p>
+                    <div class="support-detail">
+                        <p>联盟汇聚数据合规领域的资深专家，遇到疑难问题可以在智库群内讨论，获得专业建议和解决方案。</p>
+                    </div>
+                    <div class="support-items">
+                        <div class="support-item">✓ 专家在线答疑</div>
+                        <div class="support-item">✓ 案例经验分享</div>
+                        <div class="support-item">✓ 法规政策解读</div>
+                        <div class="support-item">✓ 行业趋势研讨</div>
+                    </div>
+                </div>
+                <div class="support-card">
+                    <div class="support-icon">🏆</div>
+                    <h3>联合案例包装</h3>
+                    <p class="support-highlight">做成标杆，提升影响力</p>
+                    <div class="support-detail">
+                        <p>优质服务案例由平台协助包装宣传，通过官网、社媒、行业活动等渠道推广，提升品牌知名度。</p>
+                    </div>
+                    <div class="support-items">
+                        <div class="support-item">✓ 案例撰写支持</div>
+                        <div class="support-item">✓ 多渠道宣传</div>
+                        <div class="support-item">✓ 行业活动推介</div>
+                        <div class="support-item">✓ 媒体报道对接</div>
+                    </div>
+                </div>
+                <div class="support-card">
+                    <div class="support-icon">🎯</div>
+                    <h3>企业直推</h3>
+                    <p class="support-highlight">有需求的企业第一时间想到你</p>
+                    <div class="support-detail">
+                        <p>根据你的专业领域和服务能力，平台将有匹配需求的企业直接推送给你，无需自己找客户。</p>
+                    </div>
+                    <div class="support-items">
+                        <div class="support-item">✓ 需求精准匹配</div>
+                        <div class="support-item">✓ 客户信息推送</div>
+                        <div class="support-item">✓ 对接全程跟进</div>
+                        <div class="support-item">✓ 效果持续优化</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="process-section">
+        <div class="section-container">
+            <h2 class="section-title" data-aos="fade-up">入驻流程</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">简单四步，开启合作</p>
+            <div class="process-timeline" data-aos="fade-up" data-aos-delay="300">
+                <div class="process-item">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="process-content">
+                        <h3>提交资料审核</h3>
+                        <p>填写机构基本信息、业务范围、服务案例等资料，平台进行资质审核（1-3个工作日）。</p>
+                        <div class="process-tags">
+                            <span class="tag">机构信息</span>
+                            <span class="tag">业务能力</span>
+                            <span class="tag">服务案例</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="process-item">
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="process-content">
+                        <h3>确认合作方向</h3>
+                        <p>审核通过后，与平台沟通确认具体的合作方向、服务内容、收费标准等细节。</p>
+                        <div class="process-tags">
+                            <span class="tag">业务方向</span>
+                            <span class="tag">服务定价</span>
+                            <span class="tag">合作模式</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="process-item">
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="process-content">
+                        <h3>进入企业对接池</h3>
+                        <p>正式入驻后，进入平台企业对接池，开始接收匹配的客户需求推送。</p>
+                        <div class="process-tags">
+                            <span class="tag">需求推送</span>
+                            <span class="tag">客户对接</span>
+                            <span class="tag">服务交付</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="process-item">
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                    </div>
+                    <div class="process-content">
+                        <h3>合作共赢</h3>
+                        <p>持续获得客户推荐，享受平台支持，共同成长，实现业务持续增长。</p>
+                        <div class="process-tags">
+                            <span class="tag">持续获客</span>
+                            <span class="tag">平台支持</span>
+                            <span class="tag">共同成长</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="process-cta" data-aos="fade-up" data-aos-delay="500">
+                <button class="btn-apply" onclick="window.location.href='join.html'">立即申请入驻</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="section-container">
+            <div class="cta-content" data-aos="fade-up">
+                <h2 class="section-title">加入我们，开启新增长</h2>
+                <p class="cta-description">不再为找客户发愁，专注做好专业服务</p>
+                <div class="cta-highlights">
+                    <div class="cta-highlight">
+                        <span class="highlight-icon">✓</span>
+                        <span>精准客户对接</span>
+                    </div>
+                    <div class="cta-highlight">
+                        <span class="highlight-icon">✓</span>
+                        <span>业务持续增长</span>
+                    </div>
+                    <div class="cta-highlight">
+                        <span class="highlight-icon">✓</span>
+                        <span>专家智库支持</span>
+                    </div>
+                    <div class="cta-highlight">
+                        <span class="highlight-icon">✓</span>
+                        <span>品牌影响力提升</span>
+                    </div>
+                </div>
+                <button class="btn-cta-large" onclick="window.location.href='join.html'">立即申请入驻</button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="about.html">平台介绍</a></li>
+                        <li><a href="index.html#services">核心业务</a></li>
+                        <li><a href="index.html#partners">合作伙伴</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li><a href="#">联系方式</a></li>
+                        <li><a href="#">商务合作</a></li>
+                        <li><a href="#">在线咨询</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>加入我们</h4>
+                    <ul>
+                        <li><a href="join.html">成为伙伴</a></li>
+                        <li><a href="#">人才招聘</a></li>
+                        <li><a href="#">合作申请</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>法律条款</h4>
+                    <ul>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">服务条款</a></li>
+                        <li><a href="#">免责声明</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 天津数据合规生态平台. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 自定义提示框 -->
+    <div id="toast" class="toast">
+        <div class="toast-content">
+            <span class="toast-icon"></span>
+            <span class="toast-message"></span>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="js/data-compliance-particles.js"></script>
+    <script src="js/lawfirm.js"></script>
+</body>
+</html>

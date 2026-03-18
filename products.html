@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>产品推荐专区 - 数据合规生态平台</title>
+    <link rel="stylesheet" href="css/data-compliance.css">
+    <link rel="stylesheet" href="css/products.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+</head>
+<body>
+    <canvas id="particleCanvas"></canvas>
+    
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">数据合规<span class="accent">生态平台</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="#pain-points">痛点分析</a></li>
+                <li><a href="#solutions">我们的方案</a></li>
+                <li><a href="#products">推荐产品</a></li>
+                <li><a href="#vendor">厂商入驻</a></li>
+                <li><a href="index.html#join" class="nav-cta">加入联盟</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero-products">
+        <div class="hero-container">
+            <h1 class="hero-title" data-aos="zoom-in" data-aos-delay="200">产品推荐专区</h1>
+            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="400">严选数据安全产品 | 平台背书 | 售后无忧</p>
+            <p class="hero-description" data-aos="fade-up" data-aos-delay="500">让您放心选择，安心使用</p>
+        </div>
+    </section>
+
+    <section id="pain-points" class="pain-points-section">
+        <div class="section-container">
+            <h2 class="section-title" data-aos="fade-up">您是否遇到这些问题？</h2>
+            <div class="pain-points-grid" data-aos="fade-up" data-aos-delay="200">
+                <div class="pain-point-card">
+                    <div class="pain-icon">🤔</div>
+                    <h3>数据安全产品太多<br>不知道怎么选？</h3>
+                    <p>市场上产品琳琅满目，功能参差不齐，难以判断哪款真正适合自己的业务需求</p>
+                </div>
+                <div class="pain-point-card">
+                    <div class="pain-icon">😰</div>
+                    <h3>买了怕不好用<br>售后没人管？</h3>
+                    <p>担心产品实际效果与宣传不符，出现问题找不到人解决，影响业务正常运行</p>
+                </div>
+                <div class="pain-point-card">
+                    <div class="pain-icon">😱</div>
+                    <h3>供应商跑路了<br>怎么办？</h3>
+                    <p>小厂商稳定性差，一旦倒闭或跑路，系统无法维护，数据安全面临巨大风险</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="solutions" class="solutions-section">
+        <div class="section-container">
+            <h2 class="section-title" data-aos="fade-up">我们怎么帮你</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">三重保障，让您无后顾之忧</p>
+            <div class="solutions-grid" data-aos="fade-up" data-aos-delay="300">
+                <div class="solution-card">
+                    <div class="solution-number">01</div>
+                    <div class="solution-icon">✓</div>
+                    <h3>严选入驻</h3>
+                    <p>每一款产品都经过联盟专业团队的严格审核，从技术能力、服务质量、企业资质等多维度把关</p>
+                    <div class="solution-tags">
+                        <span class="tag">技术审核</span>
+                        <span class="tag">资质认证</span>
+                        <span class="tag">服务评估</span>
+                    </div>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-number">02</div>
+                    <div class="solution-icon">🛡️</div>
+                    <h3>平台背书</h3>
+                    <p>出问题，联盟牵头协调。我们为入驻产品提供信用背书，一旦出现纠纷，平台介入协调解决</p>
+                    <div class="solution-tags">
+                        <span class="tag">信用担保</span>
+                        <span class="tag">纠纷调解</span>
+                        <span class="tag">权益保护</span>
+                    </div>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-number">03</div>
+                    <div class="solution-icon">📊</div>
+                    <h3>售后跟踪</h3>
+                    <p>用了怎么样，我们持续关注。定期回访使用情况，收集反馈意见，督促厂商持续优化服务</p>
+                    <div class="solution-tags">
+                        <span class="tag">定期回访</span>
+                        <span class="tag">问题跟进</span>
+                        <span class="tag">服务监督</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="products-section">
+        <div class="section-container">
+            <h2 class="section-title" data-aos="fade-up">推荐产品列表</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">精选优质数据安全产品</p>
+            <div class="products-grid" data-aos="fade-up" data-aos-delay="300">
+                <div class="product-card">
+                    <div class="product-badge">热门推荐</div>
+                    <div class="product-icon">📱</div>
+                    <h3 class="product-name">AI防飞单手机</h3>
+                    <p class="product-intro">销售过程全程留痕，防止飞单私单</p>
+                    <div class="product-scene">
+                        <span class="scene-label">适用场景：</span>
+                        <span class="scene-text">销售团队管理、客户资源保护、业务流程监控</span>
+                    </div>
+                    <button class="btn-detail">查看详情</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-badge">企业首选</div>
+                    <div class="product-icon">🔐</div>
+                    <h3 class="product-name">数据加密工具</h3>
+                    <p class="product-intro">文件传输存储，一键加密</p>
+                    <div class="product-scene">
+                        <span class="scene-label">适用场景：</span>
+                        <span class="scene-text">敏感文件保护、内部资料管理、跨部门协作</span>
+                    </div>
+                    <button class="btn-detail">查看详情</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-badge">AI智能</div>
+                    <div class="product-icon">🔍</div>
+                    <h3 class="product-name">合规检测系统</h3>
+                    <p class="product-intro">自动扫描营销文案风险</p>
+                    <div class="product-scene">
+                        <span class="scene-label">适用场景：</span>
+                        <span class="scene-text">营销内容审核、广告合规检查、风险预警提示</span>
+                    </div>
+                    <button class="btn-detail">查看详情</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="vendor" class="vendor-section">
+        <div class="section-container">
+            <div class="vendor-content" data-aos="fade-up">
+                <h2 class="section-title">厂商入驻</h2>
+                <p class="vendor-description">你是产品方？提交资料，申请入驻</p>
+                <p class="vendor-benefits">加入我们的生态平台，获得品牌曝光、客户资源、平台背书等多重支持</p>
+                <div class="vendor-features">
+                    <div class="vendor-feature">
+                        <span class="feature-icon">✓</span>
+                        <span>品牌展示机会</span>
+                    </div>
+                    <div class="vendor-feature">
+                        <span class="feature-icon">✓</span>
+                        <span>精准客户对接</span>
+                    </div>
+                    <div class="vendor-feature">
+                        <span class="feature-icon">✓</span>
+                        <span>平台信用背书</span>
+                    </div>
+                    <div class="vendor-feature">
+                        <span class="feature-icon">✓</span>
+                        <span>营销推广支持</span>
+                    </div>
+                </div>
+                <button class="btn-vendor">申请入驻</button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="index.html#about">平台介绍</a></li>
+                        <li><a href="index.html#services">核心业务</a></li>
+                        <li><a href="index.html#partners">合作伙伴</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li><a href="#">联系方式</a></li>
+                        <li><a href="#">商务合作</a></li>
+                        <li><a href="#">在线咨询</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>加入我们</h4>
+                    <ul>
+                        <li><a href="index.html#join">成为伙伴</a></li>
+                        <li><a href="#">人才招聘</a></li>
+                        <li><a href="#">合作申请</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>法律条款</h4>
+                    <ul>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">服务条款</a></li>
+                        <li><a href="#">免责声明</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 天津数据合规生态平台. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 联系弹窗 -->
+    <div id="contactModal" class="modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>联系我们</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <form id="contactForm" class="modal-form">
+                <div class="form-group">
+                    <label for="productName">产品名称 <span class="required">*</span></label>
+                    <input type="text" id="productName" name="productName" placeholder="请输入产品名称（20字以内）" maxlength="20" required>
+                    <span class="error-message" id="productNameError"></span>
+                </div>
+                <div class="form-group">
+                    <label for="productDesc">产品介绍</label>
+                    <textarea id="productDesc" name="productDesc" placeholder="请输入产品介绍（200字以内）" maxlength="200" rows="4"></textarea>
+                    <span class="char-count"><span id="descCount">0</span>/200</span>
+                </div>
+                <div class="form-group">
+                    <label for="contactPhone">联系方式 <span class="required">*</span></label>
+                    <input type="tel" id="contactPhone" name="contactPhone" placeholder="请输入手机号码" required>
+                    <span class="error-message" id="contactPhoneError"></span>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-cancel">取消</button>
+                    <button type="submit" class="btn-submit-form">
+                        <span class="btn-text">提交</span>
+                        <span class="btn-loading">提交中...</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 自定义提示框 -->
+    <div id="toast" class="toast">
+        <div class="toast-content">
+            <span class="toast-icon"></span>
+            <span class="toast-message"></span>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="js/data-compliance-particles.js"></script>
+    <script src="js/products.js"></script>
+</body>
+</html>
