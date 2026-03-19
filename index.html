@@ -66,7 +66,7 @@
                 </div>
                 
                 <div class="services-list">
-                    <div class="service-item" data-service="law-finance">
+                    <div class="service-item" data-service="law-finance" data-link="lawfirm.html" role="link" tabindex="0">
                         <div class="service-content">
                             <h3 class="service-title">⚖️ 律所财税</h3>
                             <div class="service-right">
@@ -80,7 +80,7 @@
                         </div>
                     </div>
                     
-                    <div class="service-item" data-service="enterprise">
+                    <div class="service-item" data-service="enterprise" data-link="enterprise.html" role="link" tabindex="0">
                         <div class="service-content">
                             <h3 class="service-title">🤖 企业AI合规</h3>
                             <div class="service-right">
@@ -94,7 +94,7 @@
                         </div>
                     </div>
                     
-                    <div class="service-item" data-service="university">
+                    <div class="service-item" data-service="university" data-link="university.html" role="link" tabindex="0">
                         <div class="service-content">
                             <h3 class="service-title">🎓 高校合作</h3>
                             <div class="service-right">
@@ -108,7 +108,7 @@
                         </div>
                     </div>
                     
-                    <div class="service-item" data-service="products">
+                    <div class="service-item" data-service="products" data-link="products.html" role="link" tabindex="0">
                         <div class="service-content">
                             <h3 class="service-title">🛡️ AI安全产品</h3>
                             <div class="service-right">
@@ -692,6 +692,23 @@
         const serviceImages = document.querySelectorAll('.service-img');
         
         serviceItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const targetLink = item.getAttribute('data-link');
+                if (targetLink) {
+                    window.location.href = targetLink;
+                }
+            });
+
+            item.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    const targetLink = item.getAttribute('data-link');
+                    if (targetLink) {
+                        window.location.href = targetLink;
+                    }
+                }
+            });
+
             item.addEventListener('mouseenter', () => {
                 const serviceType = item.getAttribute('data-service');
                 
