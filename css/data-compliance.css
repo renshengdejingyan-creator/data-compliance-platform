@@ -1035,6 +1035,8 @@ body::after {
     padding: 16px 48px;
     background: linear-gradient(135deg, var(--color-accent) 0%, #93c5fd 100%);
     color: white;
+    text-decoration: none;
+    display: inline-block;
     border: none;
     border-radius: 24px;
     font-size: 18px;
