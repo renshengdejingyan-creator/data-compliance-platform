@@ -8,13 +8,54 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
     <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
     <script>
+        window.salesmartlyReady = false;
+        window.salesmartlyReadyBound = false;
+
+        function markSalesmartlyReady() {
+            if (window.salesmartlyReady) return;
+            window.salesmartlyReady = true;
+            window.dispatchEvent(new Event('salesmartly:ready'));
+        }
+
+        function bindSalesmartlyReadyCallback() {
+            if (window.salesmartlyReadyBound || typeof window.ssq !== 'function') {
+                return false;
+            }
+
+            window.salesmartlyReadyBound = true;
+            window.ssq('onReady', () => {
+                markSalesmartlyReady();
+            });
+            return true;
+        }
+
+        window.addEventListener('message', (event) => {
+            const data = event && event.data ? event.data : null;
+            if (data && data.type === 'ssc' && data.key === 'ready') {
+                markSalesmartlyReady();
+            }
+        });
+
         window.addEventListener('load', () => {
             setTimeout(() => {
                 const salesmartlyScript = document.createElement('script');
                 salesmartlyScript.src = 'https://plugin-code.salesmartly.com/js/project_656064_676683_1773900255.js';
                 salesmartlyScript.async = true;
+
+                salesmartlyScript.addEventListener('load', () => {
+                    const onReadyTimer = setInterval(() => {
+                        if (bindSalesmartlyReadyCallback()) {
+                            clearInterval(onReadyTimer);
+                        }
+                    }, 100);
+
+                    setTimeout(() => {
+                        clearInterval(onReadyTimer);
+                    }, 10000);
+                });
+
                 document.body.appendChild(salesmartlyScript);
-            }, 3000);
+            }, 2000);
         });
     </script>
 </head>
@@ -288,8 +329,8 @@
                     <h3>有数据合规问题？</h3>
                     <p>提交您的需求，我们的专家团队将为您提供专业的解决方案</p>
                     <div class="qa-form">
-                        <input type="text" placeholder="请输入您的问题" class="qa-input">
-                        <button class="btn-submit">提问</button>
+                        <input type="text" placeholder="请输入您的问题" class="qa-input" id="qaInput">
+                        <button class="btn-submit" id="qaSubmitBtn" type="button" disabled>提问</button>
                     </div>
                 </div>
             </div>
@@ -520,6 +561,95 @@
                     toast.classList.remove('hide');
                 }, 400);
             }, 3000);
+        }
+
+        const qaInput = document.getElementById('qaInput');
+        const qaSubmitBtn = document.getElementById('qaSubmitBtn');
+
+        function setQaSubmitEnabled(enabled) {
+            if (!qaSubmitBtn) return;
+            qaSubmitBtn.disabled = !enabled;
+            qaSubmitBtn.textContent = '提问';
+        }
+
+        function runSsqCommand(command, payload) {
+            if (typeof window.ssq !== 'function') {
+                return false;
+            }
+
+            let called = false;
+            if (typeof window.ssq.push === 'function') {
+                try {
+                    if (typeof payload === 'undefined') {
+                        window.ssq.push(command);
+                    } else {
+                        window.ssq.push(command, payload);
+                    }
+                    called = true;
+                } catch (error) {
+                    console.error('ssq.push 调用失败:', error);
+                }
+            }
+
+            try {
+                if (typeof payload === 'undefined') {
+                    window.ssq(command);
+                } else {
+                    window.ssq(command, payload);
+                }
+                called = true;
+            } catch (error) {
+                console.error('ssq 调用失败:', error);
+            }
+
+            return called;
+        }
+
+        if (qaSubmitBtn) {
+            setQaSubmitEnabled(Boolean(window.salesmartlyReady));
+
+            window.addEventListener('salesmartly:ready', () => {
+                setQaSubmitEnabled(true);
+            });
+
+            qaSubmitBtn.addEventListener('click', () => {
+                const message = qaInput ? qaInput.value.trim() : '';
+
+                if (!message) {
+                    showToast('请输入您的问题', 'error');
+                    if (qaInput) qaInput.focus();
+                    return;
+                }
+
+                if (typeof window.ssq !== 'function' || typeof window.ssq.push !== 'function') {
+                    showToast('聊天插件加载中，请稍后重试', 'error');
+                    return;
+                }
+
+                const opened = runSsqCommand('chatOpen');
+                if (!opened) {
+                    showToast('聊天窗口暂未就绪，请稍后重试', 'error');
+                    return;
+                }
+
+                setTimeout(() => {
+                    const sent = runSsqCommand('sendTextMessage', message);
+                    if (!sent) {
+                        showToast('消息发送失败，请稍后重试', 'error');
+                    }
+                }, 200);
+
+                qaInput.value = '';
+            });
+
+            if (qaInput) {
+                qaInput.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        qaSubmitBtn.click();
+                    }
+                });
+            }
         }
 
         // 弹窗交互逻辑

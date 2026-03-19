@@ -1118,7 +1118,14 @@ body::after {
     transition: all 0.3s;
 }
 
-.btn-submit:hover {
+.btn-submit:disabled {
+    background: #94a3b8;
+    color: rgba(255, 255, 255, 0.9);
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.btn-submit:hover:not(:disabled) {
     background: var(--color-accent-hover);
     transform: translateY(-2px);
 }
