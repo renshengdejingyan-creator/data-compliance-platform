@@ -7,6 +7,16 @@
     <link rel="stylesheet" href="css/data-compliance.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
     <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+    <script>
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const salesmartlyScript = document.createElement('script');
+                salesmartlyScript.src = 'https://plugin-code.salesmartly.com/js/project_656064_676683_1773900255.js';
+                salesmartlyScript.async = true;
+                document.body.appendChild(salesmartlyScript);
+            }, 3000);
+        });
+    </script>
 </head>
 <body>
     <canvas id="particleCanvas"></canvas>
