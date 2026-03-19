@@ -5,6 +5,7 @@ function openContactModal(type) {
     const modal = document.getElementById('contactModal');
     const modalTitle = document.getElementById('modalTitle');
     const serviceTypeSelect = document.getElementById('serviceType');
+    const modalContent = modal ? modal.querySelector('.modal-content') : null;
     
     if (modal) {
         // 根据类型设置标题和默认选项
@@ -20,6 +21,9 @@ function openContactModal(type) {
         
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
+        if (modalContent) {
+            modalContent.scrollTop = 0;
+        }
     }
 }
 
@@ -241,7 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             try {
                 // 发送数据到后台 API
-                const response = await fetch('/api/forward', {
+                const response = await fetch('/api/enterprise-apply', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

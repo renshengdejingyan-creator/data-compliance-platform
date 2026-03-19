@@ -103,6 +103,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function openModal() {
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
+        const modalContent = modal ? modal.querySelector('.modal-content') : null;
+        if (modalContent) {
+            modalContent.scrollTop = 0;
+        }
     }
     
     // 关闭弹窗
@@ -235,7 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             try {
                 // 发送数据到后台 API
-                const response = await fetch('/api/forward', {
+                const response = await fetch('/api/join-apply', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

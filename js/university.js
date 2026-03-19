@@ -3,9 +3,13 @@
 // 打开联系弹窗的全局函数
 function openContactModal() {
     const modal = document.getElementById('contactModal');
+    const modalContent = modal ? modal.querySelector('.modal-content') : null;
     if (modal) {
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
+        if (modalContent) {
+            modalContent.scrollTop = 0;
+        }
     }
 }
 
@@ -248,7 +252,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             try {
                 // 发送数据到后台 API
-                const response = await fetch('/api/forward', {
+                const response = await fetch('/api/university-apply', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
