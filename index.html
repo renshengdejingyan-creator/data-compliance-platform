@@ -205,7 +205,7 @@
         </div>
     </section>
 
-    <section class="partners-section">
+    <section class="partners-section" id="partners">
         <div class="section-container">
             <h2 class="section-title" data-aos="fade-up">合作企业</h2>
             <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">携手共建数据安全生态</p>
@@ -343,7 +343,7 @@
                 <div class="footer-section">
                     <h4>关于我们</h4>
                     <ul>
-                        <li><a href="#about">平台介绍</a></li>
+                        <li><a href="about.html">平台介绍</a></li>
                         <li><a href="#services">核心业务</a></li>
                         <li><a href="#partners">合作伙伴</a></li>
                     </ul>
@@ -352,8 +352,8 @@
                     <h4>联系我们</h4>
                     <ul>
                         <li><a href="#">联系方式</a></li>
-                        <li><a href="#">商务合作</a></li>
-                        <li><a href="#">在线咨询</a></li>
+                        <li><a href="join.html">商务合作</a></li>
+                        <li><a href="#" id="footerOnlineConsult">在线咨询</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -361,7 +361,7 @@
                     <ul>
                         <li><a href="#join">成为伙伴</a></li>
                         <li><a href="#">人才招聘</a></li>
-                        <li><a href="#">合作申请</a></li>
+                        <li><a href="join.html">合作申请</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -565,6 +565,7 @@
 
         const qaInput = document.getElementById('qaInput');
         const qaSubmitBtn = document.getElementById('qaSubmitBtn');
+        const footerOnlineConsult = document.getElementById('footerOnlineConsult');
 
         function setQaSubmitEnabled(enabled) {
             if (!qaSubmitBtn) return;
@@ -650,6 +651,22 @@
                     }
                 });
             }
+        }
+
+        if (footerOnlineConsult) {
+            footerOnlineConsult.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                if (!window.salesmartlyReady && typeof window.ssq !== 'function') {
+                    showToast('聊天插件加载中，请稍后重试', 'error');
+                    return;
+                }
+
+                const opened = runSsqCommand('chatOpen');
+                if (!opened) {
+                    showToast('聊天窗口暂未就绪，请稍后重试', 'error');
+                }
+            });
         }
 
         // 弹窗交互逻辑
