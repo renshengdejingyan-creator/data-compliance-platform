@@ -1131,6 +1131,46 @@ body::after {
     transform: translateY(-2px);
 }
 
+/* QA Section 移动端适配 */
+@media (max-width: 768px) {
+    .qa-card {
+        padding: 30px 20px;
+    }
+    
+    .qa-icon {
+        font-size: 48px;
+        margin-bottom: 16px;
+    }
+    
+    .qa-card h3 {
+        font-size: 24px;
+        margin-bottom: 12px;
+    }
+    
+    .qa-card p {
+        font-size: 14px;
+        margin-bottom: 24px;
+    }
+    
+    .qa-form {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .qa-input {
+        width: 100%;
+        padding: 14px 16px;
+        font-size: 15px;
+    }
+    
+    .btn-submit {
+        width: 100%;
+        padding: 14px 24px;
+        font-size: 16px;
+        white-space: nowrap;
+    }
+}
+
 .showcase-carousel {
     overflow: hidden;
 }
@@ -1578,6 +1618,8 @@ body::after {
     z-index: 10;
     min-height: 500px;
     transition: opacity 0.5s ease-in-out;
+    overflow-x: hidden;
+    width: 100%;
 }
 
 .coverflow-close {
@@ -1620,7 +1662,7 @@ body::after {
     max-width: 1000px;
     height: 400px;
     perspective: 1500px;
-    overflow: visible;
+    overflow: hidden;
     position: relative;
 }
 
@@ -1645,7 +1687,7 @@ body::after {
     overflow: hidden;
     cursor: pointer;
     transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    box-shadow: none;
     will-change: transform, opacity;
     left: 50%;
     top: 50%;
@@ -1665,7 +1707,7 @@ body::after {
     transform: perspective(1500px) rotateY(0deg) translateX(0) translateZ(0) scale(1.1);
     opacity: 1;
     z-index: 10;
-    box-shadow: 0 30px 80px rgba(96, 165, 250, 0.6);
+    box-shadow: none;
     border-color: rgba(96, 165, 250, 0.8);
 }
 
@@ -1847,63 +1889,70 @@ body::after {
 
 @media (max-width: 768px) {
     .coverflow-section {
-        padding: 100px 20px 40px;
+        padding: 100px 15px 40px;
         min-height: 450px;
+        overflow-x: hidden;
     }
     
     .coverflow-close {
         top: 70px;
-        right: 20px;
+        right: 15px;
         width: 36px;
         height: 36px;
         font-size: 28px;
     }
     
     .coverflow-wrapper {
-        gap: 20px;
+        gap: 10px;
+        overflow: hidden;
+        max-width: 100%;
     }
     
     .coverflow-container {
         height: 350px;
+        max-width: 100%;
+        overflow: hidden;
     }
     
     .coverflow-item {
-        width: 250px;
-        height: 300px;
-        margin-left: -125px;
-        margin-top: -150px;
+        width: 220px;
+        height: 280px;
+        margin-left: -110px;
+        margin-top: -140px;
     }
     
     .coverflow-nav {
         width: 40px;
         height: 40px;
         font-size: 28px;
+        flex-shrink: 0;
     }
     
     /* 移动端侧边卡片设置为不可点击 */
     .coverflow-item[data-position="-1"],
     .coverflow-item[data-position="1"] {
         opacity: 0.3;
-        transform: perspective(1500px) rotateY(0deg) translateX(0) translateZ(-300px) scale(0.6);
+        transform: perspective(1500px) rotateY(0deg) translateX(0) translateZ(-300px) scale(0.5);
         pointer-events: none;
     }
     
     .coverflow-item[data-position="-1"] {
-        transform: perspective(1500px) rotateY(30deg) translateX(-200px) translateZ(-250px) scale(0.6);
+        transform: perspective(1500px) rotateY(25deg) translateX(-150px) translateZ(-250px) scale(0.5);
     }
     
     .coverflow-item[data-position="1"] {
-        transform: perspective(1500px) rotateY(-30deg) translateX(200px) translateZ(-250px) scale(0.6);
+        transform: perspective(1500px) rotateY(-25deg) translateX(150px) translateZ(-250px) scale(0.5);
     }
     
     /* 确保激活的卡片可以点击 */
     .coverflow-item.active {
         pointer-events: auto;
+        transform: perspective(1500px) rotateY(0deg) translateX(0) translateZ(0) scale(1);
     }
     
     .coverflow-partner-notice {
-        padding: 20px 25px;
-        margin: 40px 20px 0;
+        padding: 20px 20px;
+        margin: 40px 15px 0;
     }
     
     .partner-text {
