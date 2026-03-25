@@ -223,8 +223,8 @@
         requirementsInput.addEventListener('blur', () => {
             if (!requirementsInput.value.trim()) {
                 requirementsError.textContent = '请输入需求描述';
-            } else if (requirementsInput.value.trim().length < 10) {
-                requirementsError.textContent = '需求描述至少需要10个字符';
+            } else if (requirementsInput.value.trim().length < 5) {
+                requirementsError.textContent = '需求描述至少需要5个字';
             } else {
                 requirementsError.textContent = '';
             }
