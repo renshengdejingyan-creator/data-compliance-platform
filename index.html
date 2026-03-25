@@ -77,6 +77,64 @@
         </div>
     </nav>
 
+    <!-- Coverflow Section -->
+    <section id="coverflow-section" class="coverflow-section" style="display: none; opacity: 0;">
+        <div class="section-container">
+            <button class="coverflow-close" aria-label="关闭">&times;</button>
+            
+            <div class="coverflow-wrapper">
+                <button class="coverflow-nav prev" aria-label="上一个">‹</button>
+                
+                <div class="coverflow-container">
+                    <div class="coverflow-track">
+                        <div class="coverflow-item active" data-index="0" data-link="quanyuhuoke.html">
+                            <div class="coverflow-image">
+                                <img src="img/coverflow-1.png" alt="天策 AI·全域获客赋能包">
+                            </div>
+                        </div>
+                        
+                        <div class="coverflow-item" data-index="1" data-link="jiangbenzengxiao.html">
+                            <div class="coverflow-image">
+                                <img src="img/coverflow-2.png" alt="天策AI·降本增效赋能包">
+                            </div>
+                        </div>
+                        
+                        <div class="coverflow-item" data-index="2" data-link="tianceai.html">
+                            <div class="coverflow-image">
+                                <img src="img/coverflow-3.png" alt="天策AI全流程陪跑赋能包">
+                            </div>
+                        </div>
+                        
+                        <div class="coverflow-item" data-index="3" data-link="bapingguandian.html">
+                            <div class="coverflow-image">
+                                <img src="img/coverflow-4.png" alt="霸屏观点·天策AI GEO内容占位服务">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="coverflow-nav next" aria-label="下一个">›</button>
+            </div>
+            
+            <div class="coverflow-indicators">
+                <span class="indicator active" data-index="0"></span>
+                <span class="indicator" data-index="1"></span>
+                <span class="indicator" data-index="2"></span>
+                <span class="indicator" data-index="3"></span>
+            </div>
+            
+            <!-- 合作加盟提示 -->
+            <div class="coverflow-partner-notice" data-aos="fade-up" data-aos-delay="700">
+                <p class="partner-text">
+                    如您想成为我们的合作加盟商，请拨打此电话：<a href="tel:15822747704" class="partner-phone">15822747704</a>
+                </p>
+                <p class="partner-desc">
+                    我们提供产品、服务、流程培训，您只需完成客户对接即可
+                </p>
+            </div>
+        </div>
+    </section>
+
     <section id="hero" class="hero">
         <div class="hero-container">
             <h1 class="hero-title" data-aos="zoom-in" data-aos-delay="200">共建数据安全联盟<br>护航企业数字未来</h1>
@@ -879,6 +937,226 @@
                 });
             });
         });
+
+        // ==================== Coverflow 功能 ====================
+        
+        // 检测 URL hash 并显示/隐藏 Coverflow
+        function checkHashAndShowCoverflow() {
+            const coverflowSection = document.getElementById('coverflow-section');
+            if (window.location.hash === '#from-survey') {
+                coverflowSection.style.display = 'block';
+                setTimeout(() => {
+                    coverflowSection.style.opacity = '1';
+                    initCoverflow();
+                }, 100);
+            } else {
+                coverflowSection.style.display = 'none';
+                coverflowSection.style.opacity = '0';
+                stopCoverflowAutoplay();
+            }
+        }
+
+        // 页面加载时检测
+        window.addEventListener('load', checkHashAndShowCoverflow);
+        
+        // Hash 变化时检测
+        window.addEventListener('hashchange', checkHashAndShowCoverflow);
+
+        // Coverflow 变量
+        let currentCoverflowIndex = 0;
+        let coverflowAutoplayInterval = null;
+        let coverflowInitialized = false;
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        const coverflowItems = document.querySelectorAll('.coverflow-item');
+        const coverflowIndicators = document.querySelectorAll('.coverflow-indicators .indicator');
+        const coverflowContainer = document.querySelector('.coverflow-container');
+
+        // 更新 Coverflow 位置
+        function updateCoverflow(newIndex, skipAnimation = false) {
+            currentCoverflowIndex = newIndex;
+            
+            coverflowItems.forEach((item, index) => {
+                const diff = index - currentCoverflowIndex;
+                
+                // 临时禁用动画（用于初始化）
+                if (skipAnimation) {
+                    item.style.transition = 'none';
+                }
+                
+                item.classList.remove('active');
+                
+                if (diff === 0) {
+                    item.classList.add('active');
+                    item.setAttribute('data-position', '0');
+                } else if (diff === -1) {
+                    item.setAttribute('data-position', '-1');
+                } else if (diff === 1) {
+                    item.setAttribute('data-position', '1');
+                } else {
+                    item.setAttribute('data-position', 'hidden');
+                }
+                
+                // 恢复动画
+                if (skipAnimation) {
+                    setTimeout(() => {
+                        item.style.transition = '';
+                    }, 50);
+                }
+            });
+            
+            // 更新指示器
+            coverflowIndicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentCoverflowIndex);
+            });
+        }
+
+        // 上一个
+        function coverflowPrev() {
+            const newIndex = (currentCoverflowIndex - 1 + coverflowItems.length) % coverflowItems.length;
+            updateCoverflow(newIndex);
+            resetCoverflowAutoplay();
+        }
+
+        // 下一个
+        function coverflowNext() {
+            const newIndex = (currentCoverflowIndex + 1) % coverflowItems.length;
+            updateCoverflow(newIndex);
+            resetCoverflowAutoplay();
+        }
+
+        // 自动轮播
+        function startCoverflowAutoplay() {
+            if (coverflowAutoplayInterval) return;
+            coverflowAutoplayInterval = setInterval(() => {
+                coverflowNext();
+            }, 5000);
+        }
+
+        function stopCoverflowAutoplay() {
+            if (coverflowAutoplayInterval) {
+                clearInterval(coverflowAutoplayInterval);
+                coverflowAutoplayInterval = null;
+            }
+        }
+
+        function resetCoverflowAutoplay() {
+            stopCoverflowAutoplay();
+            startCoverflowAutoplay();
+        }
+
+        // 触摸滑动支持
+        let isSwiping = false;
+        
+        function handleTouchStart(e) {
+            touchStartX = e.touches[0].clientX;
+            touchEndX = touchStartX;
+            isSwiping = false;
+        }
+
+        function handleTouchMove(e) {
+            touchEndX = e.touches[0].clientX;
+            const diff = Math.abs(touchStartX - touchEndX);
+            // 如果移动超过 10px，认为是滑动而不是点击
+            if (diff > 10) {
+                isSwiping = true;
+            }
+        }
+
+        function handleTouchEnd() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    // 向左滑动，显示下一个
+                    coverflowNext();
+                } else {
+                    // 向右滑动，显示上一个
+                    coverflowPrev();
+                }
+            }
+        }
+
+        // 初始化 Coverflow
+        function initCoverflow() {
+            if (coverflowInitialized) return;
+            coverflowInitialized = true;
+
+            // 初始化位置（不带动画）
+            updateCoverflow(0, true);
+
+            // 左右按钮
+            document.querySelector('.coverflow-nav.prev').addEventListener('click', coverflowPrev);
+            document.querySelector('.coverflow-nav.next').addEventListener('click', coverflowNext);
+
+            // 点击卡片切换或跳转
+            coverflowItems.forEach((item, index) => {
+                item.addEventListener('click', (e) => {
+                    // 如果是滑动操作，不触发点击
+                    if (isSwiping) {
+                        isSwiping = false;
+                        return;
+                    }
+                    
+                    // 如果点击的是当前激活的卡片，跳转到落地页
+                    if (index === currentCoverflowIndex) {
+                        const targetLink = item.getAttribute('data-link');
+                        if (targetLink) {
+                            console.log('跳转到:', targetLink);
+                            window.location.href = targetLink;
+                        }
+                    } else {
+                        // 如果点击的不是当前卡片，切换到该卡片
+                        updateCoverflow(index);
+                        resetCoverflowAutoplay();
+                    }
+                });
+            });
+
+            // 指示器点击
+            coverflowIndicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    updateCoverflow(index);
+                    resetCoverflowAutoplay();
+                });
+            });
+
+            // 键盘支持
+            const handleKeydown = (e) => {
+                if (document.getElementById('coverflow-section').style.display === 'none') return;
+                
+                if (e.key === 'ArrowLeft') {
+                    coverflowPrev();
+                } else if (e.key === 'ArrowRight') {
+                    coverflowNext();
+                }
+            };
+            document.addEventListener('keydown', handleKeydown);
+
+            // 触摸滑动
+            if (coverflowContainer) {
+                coverflowContainer.addEventListener('touchstart', handleTouchStart, { passive: true });
+                coverflowContainer.addEventListener('touchmove', handleTouchMove, { passive: true });
+                coverflowContainer.addEventListener('touchend', handleTouchEnd);
+            }
+
+            // 鼠标悬停时暂停自动轮播
+            coverflowContainer.addEventListener('mouseenter', stopCoverflowAutoplay);
+            coverflowContainer.addEventListener('mouseleave', startCoverflowAutoplay);
+
+            // 关闭按钮
+            const closeBtn = document.querySelector('.coverflow-close');
+            closeBtn.addEventListener('click', () => {
+                // 移除 hash
+                history.pushState('', document.title, window.location.pathname + window.location.search);
+                checkHashAndShowCoverflow();
+            });
+
+            // 启动自动轮播
+            startCoverflowAutoplay();
+        }
     </script>
 </body>
 </html>

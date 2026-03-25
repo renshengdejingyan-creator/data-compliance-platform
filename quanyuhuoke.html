@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全域获客 - 数据合规生态平台</title>
+    <link rel="stylesheet" href="css/data-compliance.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+    <style>
+        .demo-section {
+            padding: 140px 20px 80px;
+            position: relative;
+            z-index: 10;
+        }
+        .demo-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .demo-title {
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ffffff 0%, #60a5fa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            max-width: 1400px;
+            margin: 0 auto;
+            border: 2px solid rgba(96, 165, 250, 0.5);
+            border-radius: 18px;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(10, 26, 40, 0.8), rgba(20, 40, 60, 0.7));
+            backdrop-filter: blur(20px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+        }
+        .demo-card {
+            position: relative;
+            background: transparent;
+            border: none;
+            border-right: 1px solid rgba(96, 165, 250, 0.2);
+            border-bottom: 1px solid rgba(96, 165, 250, 0.2);
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+        .demo-card:nth-child(4n) {
+            border-right: none;
+        }
+        .demo-card:nth-child(n+5) {
+            border-bottom: none;
+        }
+        .demo-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(96, 165, 250, 0.1);
+            opacity: 0;
+            transition: opacity 0.4s;
+            z-index: 1;
+        }
+        .demo-card:hover::before {
+            opacity: 1;
+        }
+        .demo-card:hover {
+            transform: scale(1.05);
+            z-index: 10;
+            box-shadow: 0 0 40px rgba(96, 165, 250, 0.6);
+        }
+        .demo-image-container {
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            background: rgba(96, 165, 250, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .demo-image-container img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            transition: transform 0.6s;
+        }
+        .demo-card:hover .demo-image-container img {
+            transform: scale(1.1);
+        }
+        .demo-image-placeholder {
+            font-size: 64px;
+            opacity: 0.3;
+        }
+        .purchase-form-container {
+            max-width: 600px;
+            margin: 60px auto 0;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(10, 26, 40, 0.9), rgba(20, 40, 60, 0.8));
+            border: 2px solid rgba(96, 165, 250, 0.5);
+            border-radius: 18px;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+        }
+        .purchase-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .form-group {
+            position: relative;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(96, 165, 250, 0.3);
+            border-radius: 12px;
+            color: #ffffff;
+            transition: all 0.3s;
+            box-sizing: border-box;
+        }
+        .form-group input:focus {
+            outline: none;
+            border-color: #60a5fa;
+            background: rgba(255, 255, 255, 0.15);
+        }
+        .form-group input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+        .error-message {
+            display: block;
+            color: #ff6b6b;
+            font-size: 14px;
+            margin-top: 8px;
+            min-height: 20px;
+        }
+        .btn-purchase {
+            padding: 16px 32px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #ffffff;
+            background: linear-gradient(135deg, #60a5fa, #3b82f6);
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-purchase:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(96, 165, 250, 0.4);
+        }
+        .btn-purchase:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .btn-purchase .btn-loading {
+            display: none;
+        }
+        .btn-purchase.loading .btn-text {
+            display: none;
+        }
+        .btn-purchase.loading .btn-loading {
+            display: inline;
+        }
+        .toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 16px 24px;
+            background: rgba(10, 26, 40, 0.95);
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            z-index: 10000;
+            opacity: 0;
+            transform: translateX(400px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .toast.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .toast.hide {
+            opacity: 0;
+            transform: translateX(400px);
+        }
+        .toast-content {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .toast-icon {
+            font-size: 20px;
+        }
+        .toast-message {
+            color: #ffffff;
+            font-size: 16px;
+        }
+        .toast.success {
+            border: 2px solid #10b981;
+        }
+        .toast.success .toast-icon {
+            color: #10b981;
+        }
+        .toast.error {
+            border: 2px solid #ef4444;
+        }
+        .toast.error .toast-icon {
+            color: #ef4444;
+        }
+        @media (max-width: 1200px) {
+            .demo-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .demo-card:nth-child(4n) {
+                border-right: 1px solid rgba(96, 165, 250, 0.2);
+            }
+            .demo-card:nth-child(3n) {
+                border-right: none;
+            }
+            .demo-card:nth-child(n+5) {
+                border-bottom: 1px solid rgba(96, 165, 250, 0.2);
+            }
+            .demo-card:nth-child(n+7) {
+                border-bottom: none;
+            }
+        }
+        @media (max-width: 900px) {
+            .demo-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .demo-title {
+                font-size: 42px;
+            }
+            .demo-card:nth-child(3n) {
+                border-right: 1px solid rgba(96, 165, 250, 0.2);
+            }
+            .demo-card:nth-child(2n) {
+                border-right: none;
+            }
+            .demo-card:nth-child(n+7) {
+                border-bottom: 1px solid rgba(96, 165, 250, 0.2);
+            }
+            .demo-card:nth-child(n+7) {
+                border-bottom: none;
+            }
+        }
+        @media (max-width: 600px) {
+            .demo-section {
+                padding: 100px 15px 60px;
+            }
+            .demo-grid {
+                grid-template-columns: 1fr;
+            }
+            .demo-title {
+                font-size: 32px;
+            }
+            .demo-image-container {
+                height: 220px;
+            }
+            .demo-card {
+                border-right: none;
+            }
+            .demo-card:last-child {
+                border-bottom: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="particleCanvas"></canvas>
+    
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">数据合规<span class="accent">生态平台</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="index.html#from-survey">返回</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="demo-section">
+        <div class="section-container">
+            <div class="demo-header" data-aos="fade-up">
+                <h1 class="demo-title">全域获客</h1>
+            </div>
+
+            <div class="demo-grid">
+                <div class="demo-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="demo-image-container">
+                        <img src="img/quanyuhuoke/1.png" alt="全域获客 1" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div class="demo-image-placeholder" style="display: none;">📦</div>
+                    </div>
+                </div>
+
+                <div class="demo-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="demo-image-container">
+                        <img src="img/quanyuhuoke/2.png" alt="全域获客 2" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div class="demo-image-placeholder" style="display: none;">⚡</div>
+                    </div>
+                </div>
+
+                <div class="demo-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="demo-image-container">
+                        <img src="img/quanyuhuoke/3.png" alt="全域获客 3" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div class="demo-image-placeholder" style="display: none;">🎯</div>
+                    </div>
+                </div>
+
+                <div class="demo-card" data-aos="fade-up" data-aos-delay="250">
+                    <div class="demo-image-container">
+                        <img src="img/quanyuhuoke/4.png" alt="全域获客 4" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div class="demo-image-placeholder" style="display: none;">🌟</div>
+                    </div>
+                </div>
+
+                <div class="demo-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="demo-image-container">
+                        <img src="img/quanyuhuoke/5.png" alt="全域获客 5" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div class="demo-image-placeholder" style="display: none;">🛡️</div>
+                    </div>
+                </div>
+
+                <div class="demo-card" data-aos="fade-up" data-aos-delay="350">
+                    <div class="demo-image-container">
+                        <img src="img/quanyuhuoke/6.png" alt="全域获客 6" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div class="demo-image-placeholder" style="display: none;">📊</div>
+                    </div>
+                </div>
+
+                <div class="demo-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="demo-image-container">
+                        <img src="img/quanyuhuoke/7.png" alt="全域获客 7" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div class="demo-image-placeholder" style="display: none;">🤝</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 立即购买表单 -->
+            <div class="purchase-form-container" data-aos="fade-up" data-aos-delay="500">
+                <form id="purchaseForm" class="purchase-form">
+                    <div class="form-group">
+                        <input 
+                            type="tel" 
+                            id="phoneInput" 
+                            name="phone" 
+                            placeholder="请输入您的手机号码" 
+                            maxlength="11"
+                            required
+                        >
+                        <span class="error-message" id="phoneError"></span>
+                    </div>
+                    
+                    <button type="submit" class="btn-purchase">
+                        <span class="btn-text">立即购买</span>
+                        <span class="btn-loading">提交中...</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 自定义提示框 -->
+    <div id="toast" class="toast">
+        <div class="toast-content">
+            <span class="toast-icon"></span>
+            <span class="toast-message"></span>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="about.html">平台介绍</a></li>
+                        <li><a href="index.html#services">核心业务</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li><a href="#">联系方式</a></li>
+                        <li><a href="join.html">商务合作</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 天津数据合规生态平台. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="js/data-compliance-particles.js"></script>
+    <script>
+        AOS.init({
+            duration: 1200,
+            once: true,
+            offset: 120,
+            easing: 'ease-out-cubic'
+        });
+
+        const demoCards = document.querySelectorAll('.demo-card');
+        demoCards.forEach((card, index) => {
+            card.addEventListener('click', () => {
+                console.log(`点击了卡片 ${index + 1}`);
+            });
+        });
+
+        // Toast 提示功能
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            const toastIcon = toast.querySelector('.toast-icon');
+            const toastMessage = toast.querySelector('.toast-message');
+            
+            if (type === 'success') {
+                toastIcon.textContent = '✓';
+                toast.className = 'toast success';
+            } else if (type === 'error') {
+                toastIcon.textContent = '✕';
+                toast.className = 'toast error';
+            }
+            
+            toastMessage.textContent = message;
+            
+            setTimeout(() => {
+                toast.classList.add('show');
+            }, 10);
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+                toast.classList.add('hide');
+                setTimeout(() => {
+                    toast.classList.remove('hide');
+                }, 400);
+            }, 3000);
+        }
+
+        // 表单验证和提交
+        const purchaseForm = document.getElementById('purchaseForm');
+        const phoneInput = document.getElementById('phoneInput');
+        const phoneError = document.getElementById('phoneError');
+
+        function validatePhone(phone) {
+            const phoneRegex = /^1[3-9]\d{9}$/;
+            return phoneRegex.test(phone);
+        }
+
+        phoneInput.addEventListener('blur', () => {
+            if (!phoneInput.value.trim()) {
+                phoneError.textContent = '请输入手机号码';
+            } else if (!validatePhone(phoneInput.value)) {
+                phoneError.textContent = '请输入正确的手机号码格式';
+            } else {
+                phoneError.textContent = '';
+            }
+        });
+
+        purchaseForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            if (!phoneInput.value.trim()) {
+                phoneError.textContent = '请输入手机号码';
+                phoneInput.focus();
+                return;
+            }
+
+            if (!validatePhone(phoneInput.value)) {
+                phoneError.textContent = '请输入正确的手机号码格式';
+                phoneInput.focus();
+                return;
+            }
+
+            const productName = document.querySelector('.demo-title').textContent;
+            const formData = {
+                phone: phoneInput.value.trim(),
+                product: productName,
+                timestamp: new Date().toISOString()
+            };
+
+            const submitBtn = purchaseForm.querySelector('.btn-purchase');
+            submitBtn.classList.add('loading');
+            submitBtn.disabled = true;
+
+            try {
+                const response = await fetch('/api/landing-purchase', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const result = await response.json();
+
+                if (response.ok && result.success) {
+                    showToast('提交成功！我们会尽快与您联系', 'success');
+                    purchaseForm.reset();
+                    phoneError.textContent = '';
+                } else {
+                    showToast(result.msg || '提交失败，请稍后重试', 'error');
+                }
+
+            } catch (error) {
+                console.error('提交错误:', error);
+                showToast('网络错误，请检查网络连接后重试', 'error');
+            } finally {
+                submitBtn.classList.remove('loading');
+                submitBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>

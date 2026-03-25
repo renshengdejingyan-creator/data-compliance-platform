@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>需求调研 - 数据合规生态平台</title>
+    <link rel="stylesheet" href="css/data-compliance.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+</head>
+<body>
+    <canvas id="particleCanvas"></canvas>
+    
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">数据合规<span class="accent">生态平台</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="lawfirm.html">律所财税</a></li>
+                <li><a href="enterprise.html">企业服务</a></li>
+                <li><a href="university.html">高校合作</a></li>
+                <li><a href="products.html">产品推荐</a></li>
+                <li><a href="about.html">关于我们</a></li>
+                <li><a href="join.html" class="nav-cta">加入联盟</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="survey-section">
+        <div class="survey-container">
+            <div class="survey-header" data-aos="fade-down" data-aos-delay="200">
+                <h1 class="survey-title">需求调研</h1>
+                <p class="survey-subtitle">告诉我们您的需求，我们将为您提供专业的数据合规解决方案</p>
+            </div>
+
+            <div class="survey-card" data-aos="fade-up" data-aos-delay="400">
+                <form id="surveyForm" class="survey-form">
+                    <div class="form-group">
+                        <label for="contactPhone">
+                            联系方式 <span class="required">*</span>
+                        </label>
+                        <input 
+                            type="tel" 
+                            id="contactPhone" 
+                            name="contactPhone" 
+                            placeholder="请输入您的手机号码" 
+                            maxlength="11"
+                            required
+                        >
+                        <span class="error-message" id="phoneError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="requirements">
+                            需求描述 <span class="required">*</span>
+                        </label>
+                        <textarea 
+                            id="requirements" 
+                            name="requirements" 
+                            placeholder="请详细描述您的需求，例如：数据合规咨询、AI备案服务、营销自查等（500字以内）" 
+                            maxlength="500"
+                            rows="8"
+                            required
+                        ></textarea>
+                        <span class="char-count"><span id="charCount">0</span>/500</span>
+                        <span class="error-message" id="requirementsError"></span>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-submit-survey">
+                            <span class="btn-text">提交需求</span>
+                            <span class="btn-loading">提交中...</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="survey-tips" data-aos="fade-up" data-aos-delay="600">
+                <div class="tip-item">
+                    <div class="tip-icon">🔒</div>
+                    <div class="tip-text">您的信息将被严格保密</div>
+                </div>
+                <div class="tip-item">
+                    <div class="tip-icon">⚡</div>
+                    <div class="tip-text">我们将在24小时内与您联系</div>
+                </div>
+                <div class="tip-item">
+                    <div class="tip-icon">💼</div>
+                    <div class="tip-text">专业团队为您提供定制化方案</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="about.html">平台介绍</a></li>
+                        <li><a href="index.html#services">核心业务</a></li>
+                        <li><a href="index.html#partners">合作伙伴</a></li>
+            </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li><a href="#">联系方式</a></li>
+                        <li><a href="join.html">商务合作</a></li>
+                        <li><a href="#">在线咨询</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>加入我们</h4>
+                    <ul>
+                        <li><a href="index.html#join">成为伙伴</a></li>
+                        <li><a href="#">人才招聘</a></li>
+                        <li><a href="join.html">合作申请</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>法律条款</h4>
+                    <ul>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">服务条款</a></li>
+                        <li><a href="#">免责声明</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 天津数据合规生态平台. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 自定义提示框 -->
+    <div id="toast" class="toast">
+        <div class="toast-content">
+            <span class="toast-icon"></span>
+            <span class="toast-message"></span>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="js/data-compliance-particles.js"></script>
+    <script>
+        // 初始化 AOS 动画
+        AOS.init({
+            duration: 1200,
+            once: true,
+            offset: 120,
+            easing: 'ease-out-cubic'
+        });
+
+        // 自定义提示框函数
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            const toastIcon = toast.querySelector('.toast-icon');
+            const toastMessage = toast.querySelector('.toast-message');
+            
+            if (type === 'success') {
+                toastIcon.textContent = '✓';
+                toast.className = 'toast success';
+            } else if (type === 'error') {
+                toastIcon.textContent = '✕';
+                toast.className = 'toast error';
+            }
+            
+            toastMessage.textContent = message;
+            
+            setTimeout(() => {
+                toast.classList.add('show');
+            }, 10);
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+                toast.classList.add('hide');
+                
+                setTimeout(() => {
+                    toast.classList.remove('hide');
+                }, 400);
+            }, 3000);
+        }
+
+        // 表单元素
+        const surveyForm = document.getElementById('surveyForm');
+        const contactPhoneInput = document.getElementById('contactPhone');
+        const requirementsInput = document.getElementById('requirements');
+        const charCount = document.getElementById('charCount');
+        const phoneError = document.getElementById('phoneError');
+        const requirementsError = document.getElementById('requirementsError');
+
+        // 字符计数
+        requirementsInput.addEventListener('input', () => {
+            charCount.textContent = requirementsInput.value.length;
+        });
+
+        // 验证手机号
+        function validatePhone(phone) {
+            const phoneRegex = /^1[3-9]\d{9}$/;
+            return phoneRegex.test(phone);
+        }
+
+        // 清除错误提示
+        function clearErrors() {
+            phoneError.textContent = '';
+            requirementsError.textContent = '';
+        }
+
+        // 实时验证手机号
+        contactPhoneInput.addEventListener('blur', () => {
+            if (!contactPhoneInput.value.trim()) {
+                phoneError.textContent = '请输入联系方式';
+            } else if (!validatePhone(contactPhoneInput.value)) {
+                phoneError.textContent = '请输入正确的手机号码格式';
+            } else {
+                phoneError.textContent = '';
+            }
+        });
+
+        // 实时验证需求描述
+        requirementsInput.addEventListener('blur', () => {
+            if (!requirementsInput.value.trim()) {
+                requirementsError.textContent = '请输入需求描述';
+            } else if (requirementsInput.value.trim().length < 10) {
+                requirementsError.textContent = '需求描述至少需要10个字符';
+            } else {
+                requirementsError.textContent = '';
+            }
+        });
+
+        // 表单提交
+        surveyForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            clearErrors();
+
+            // 验证手机号
+            if (!contactPhoneInput.value.trim()) {
+                phoneError.textContent = '请输入联系方式';
+                contactPhoneInput.focus();
+                return;
+            }
+
+            if (!validatePhone(contactPhoneInput.value)) {
+                phoneError.textContent = '请输入正确的手机号码格式';
+                contactPhoneInput.focus();
+                return;
+            }
+
+            // 验证需求描述
+            if (!requirementsInput.value.trim()) {
+                requirementsError.textContent = '请输入需求描述';
+                requirementsInput.focus();
+                return;
+            }
+
+            if (requirementsInput.value.trim().length < 5) {
+                requirementsError.textContent = '需求描述至少需要5个字';
+                requirementsInput.focus();
+                return;
+            }
+
+            // 准备提交数据
+            const formData = {
+                contactPhone: contactPhoneInput.value.trim(),
+                requirements: requirementsInput.value.trim(),
+                timestamp: new Date().toISOString()
+            };
+
+            // 显示加载状态
+            const submitBtn = surveyForm.querySelector('.btn-submit-survey');
+            submitBtn.classList.add('loading');
+            submitBtn.disabled = true;
+
+            try {
+                // 发送数据到后台 API
+                const response = await fetch('/api/survey', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const result = await response.json();
+
+                if (response.ok && result.success) {
+                    showToast('提交成功！正在跳转...', 'success');
+                    surveyForm.reset();
+                    charCount.textContent = '0';
+                    
+                    // 延迟1.5秒后跳转到首页并显示 Coverflow
+                    setTimeout(() => {
+                        window.location.href = 'index.html#from-survey';
+                    }, 1500);
+                } else {
+                    console.error('提交失败:', result);
+                    showToast(result.msg || '提交失败，请稍后重试', 'error');
+                }
+
+            } catch (error) {
+                console.error('提交错误:', error);
+                showToast('网络错误，请检查网络连接后重试', 'error');
+            } finally {
+                submitBtn.classList.remove('loading');
+                submitBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>
