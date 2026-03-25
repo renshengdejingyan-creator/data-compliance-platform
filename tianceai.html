@@ -219,6 +219,24 @@
         .toast.error .toast-icon {
             color: #ef4444;
         }
+        @media (max-width: 768px) {
+            .toast {
+                top: 50%;
+                left: 50%;
+                right: auto;
+                transform: translate(-50%, -50%) scale(0.8);
+                opacity: 0;
+                max-width: 90%;
+            }
+            .toast.show {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+            .toast.hide {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.8);
+            }
+        }
         @media (max-width: 1200px) {
             .demo-grid {
                 grid-template-columns: repeat(3, 1fr);
