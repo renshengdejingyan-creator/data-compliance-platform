@@ -291,6 +291,16 @@
                 border-bottom: none;
             }
         }
+        
+        /* 垂直翻页样式 */
+        .vertical-slider-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        @media (max-width: 768px) {
     </style>
 </head>
 <body>
@@ -407,6 +417,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="js/data-compliance-particles.js"></script>
+    <script src="js/vertical-slider.js"></script>
     <script>
         AOS.init({
             duration: 1200,
