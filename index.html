@@ -78,7 +78,7 @@
     </nav>
 
     <!-- Coverflow Section -->
-    <section id="coverflow-section" class="coverflow-section" style="display: none; opacity: 0;">
+    <section id="coverflow-section" class="coverflow-section">
         <div class="section-container">
             <button class="coverflow-close" aria-label="关闭">&times;</button>
             
@@ -940,27 +940,10 @@
 
         // ==================== Coverflow 功能 ====================
         
-        // 检测 URL hash 并显示/隐藏 Coverflow
-        function checkHashAndShowCoverflow() {
-            const coverflowSection = document.getElementById('coverflow-section');
-            if (window.location.hash === '#from-survey') {
-                coverflowSection.style.display = 'block';
-                setTimeout(() => {
-                    coverflowSection.style.opacity = '1';
-                    initCoverflow();
-                }, 100);
-            } else {
-                coverflowSection.style.display = 'none';
-                coverflowSection.style.opacity = '0';
-                stopCoverflowAutoplay();
-            }
-        }
-
-        // 页面加载时检测
-        window.addEventListener('load', checkHashAndShowCoverflow);
-        
-        // Hash 变化时检测
-        window.addEventListener('hashchange', checkHashAndShowCoverflow);
+        // 页面加载时初始化 Coverflow
+        window.addEventListener('load', () => {
+            initCoverflow();
+        });
 
         // Coverflow 变量
         let currentCoverflowIndex = 0;
