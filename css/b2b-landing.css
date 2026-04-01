@@ -333,69 +333,68 @@ main {
   position: relative;
   width: 340px;
   height: 340px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 58, 58, 0.16) 0%, rgba(255, 255, 255, 0.98) 72%);
-  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.radio-ring {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+.radio-core {
+  position: relative;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
-  border: 1px solid rgba(255, 103, 0, 0.28);
-  transform: translate(-50%, -50%);
+  background: var(--red);
+  box-shadow: 
+    0 0 20px rgba(255, 58, 58, 0.8),
+    0 0 40px rgba(255, 103, 0, 0.6),
+    0 0 60px rgba(255, 103, 0, 0.4);
+  z-index: 10;
+  animation: corePulse 2s ease-in-out infinite;
 }
-
-.ring-1 { width: 86px; height: 86px; opacity: 0.45; }
-.ring-2 { width: 138px; height: 138px; opacity: 0.32; }
-.ring-3 { width: 194px; height: 194px; opacity: 0.24; }
-.ring-4 { display: none; }
 
 .radio-wave {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 14px;
-  height: 14px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
-  border: 2px solid rgba(255, 58, 58, 0.82);
-  transform: translate(-50%, -50%) scale(0.1);
-  opacity: 0;
-  animation: radioCarrier 1.8s cubic-bezier(0.2, 0.6, 0.2, 1) infinite;
+  border: 1px solid var(--red);
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 1;
+  animation: radioWaveExpand 1.5s ease-out infinite;
+  will-change: transform, opacity;
 }
 
-.wave-a { animation-delay: 0s; }
-.wave-b { animation-delay: 0.35s; }
-.wave-c { animation-delay: 0.7s; }
+.wave-1 { animation-delay: 0s; }
+.wave-2 { animation-delay: 0.5s; }
+.wave-3 { animation-delay: 1s; }
 
-.radio-core {
+.radar-target {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ffb380;
+  box-shadow: 
+    0 0 10px rgba(255, 179, 128, 0.8),
+    0 0 20px rgba(255, 103, 0, 0.6);
+  opacity: 0;
+  z-index: 5;
+  animation: targetBlink 1.5s ease-in-out infinite;
+}
+
+.radar-target::before {
+  content: '';
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 150px;
-  height: 150px;
+  width: 20px;
+  height: 20px;
+  border: 1px solid rgba(255, 103, 0, 0.6);
   border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, #ffffff 0%, #fff0e8 58%, #ffd7c2 100%);
   transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  box-shadow: 0 0 26px rgba(255, 58, 58, 0.25), inset 0 0 10px rgba(255, 255, 255, 0.92);
-  animation: coreBeat 1.4s ease-in-out infinite;
-}
-
-.engine-title {
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  color: #a35a2f;
-}
-
-.engine-value {
-  font-size: 15px;
-  color: #c02200;
+  animation: targetRing 1.5s ease-out infinite;
 }
 
 .engine-metrics {
@@ -423,7 +422,7 @@ main {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: #ff3a3a;
+  background: #1ca643;
   box-shadow: 0 0 0 0 rgba(255, 58, 58, 0.45);
   animation: dotPulse 1.2s ease-in-out infinite;
 }
@@ -542,12 +541,6 @@ main {
   100% { transform: translateY(-50%); }
 }
 
-@keyframes coreBeat {
-  0%,
-  100% { transform: translate(-50%, -50%) scale(1); }
-  50% { transform: translate(-50%, -50%) scale(1.04); }
-}
-
 @keyframes dotPulse {
   0%,
   100% {
@@ -560,28 +553,59 @@ main {
   }
 }
 
-@keyframes radioCarrier {
+@keyframes radioWaveExpand {
   0% {
-    transform: translate(-50%, -50%) scale(0.1);
-    opacity: 0;
-    border-color: rgba(255, 58, 58, 0.95);
-    box-shadow: 0 0 0 0 rgba(255, 58, 58, 0.48);
-  }
-  15% {
+    transform: translate(-50%, -50%) scale(0);
     opacity: 1;
-    border-color: rgba(255, 58, 58, 0.85);
-    box-shadow: 0 0 12px 2px rgba(255, 58, 58, 0.5);
+    border-color: var(--red);
+    box-shadow: 0 0 10px rgba(255, 58, 58, 0.8);
   }
-  72% {
-    opacity: 0.22;
-    border-color: rgba(255, 103, 0, 0.34);
-    box-shadow: 0 0 22px 3px rgba(255, 103, 0, 0.22);
+  50% {
+    border-color: var(--orange);
+    box-shadow: 0 0 20px rgba(255, 103, 0, 0.6);
   }
   100% {
-    transform: translate(-50%, -50%) scale(15.8);
+    transform: translate(-50%, -50%) scale(14.2);
     opacity: 0;
-    border-color: rgba(255, 58, 58, 0);
-    box-shadow: 0 0 30px 4px rgba(255, 58, 58, 0);
+    border-color: #ffb380;
+    box-shadow: 0 0 30px rgba(255, 179, 128, 0);
+  }
+}
+
+@keyframes corePulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 
+      0 0 20px rgba(255, 58, 58, 0.8),
+      0 0 40px rgba(255, 103, 0, 0.6),
+      0 0 60px rgba(255, 103, 0, 0.4);
+  }
+  50% {
+    transform: scale(1.15);
+    box-shadow: 
+      0 0 30px rgba(255, 58, 58, 1),
+      0 0 60px rgba(255, 103, 0, 0.8),
+      0 0 90px rgba(255, 103, 0, 0.6);
+  }
+}
+
+@keyframes targetBlink {
+  0%, 100% {
+    opacity: 0;
+  }
+  10%, 90% {
+    opacity: 1;
+  }
+}
+
+@keyframes targetRing {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 0;
   }
 }
 
@@ -637,8 +661,13 @@ main {
   }
 
   .radio-core {
-    width: 120px;
-    height: 120px;
+    width: 20px;
+    height: 20px;
+  }
+
+  .radio-wave {
+    width: 20px;
+    height: 20px;
   }
 
   .ticker-window {

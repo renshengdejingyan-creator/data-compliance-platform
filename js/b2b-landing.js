@@ -80,3 +80,34 @@ const titleObserver = new IntersectionObserver(
 titleTargets.forEach((title) => {
   titleObserver.observe(title);
 });
+
+const radioPulse = document.getElementById('radioPulse');
+
+if (radioPulse) {
+  const targetCount = 6;
+  const containerSize = 340;
+  const centerSize = 24;
+  const minDistance = 40;
+  const maxDistance = containerSize / 2 - 20;
+
+  function createRadarTarget() {
+    const angle = Math.random() * Math.PI * 2;
+    const distance = minDistance + Math.random() * (maxDistance - minDistance);
+    
+    const x = Math.cos(angle) * distance;
+    const y = Math.sin(angle) * distance;
+    
+    const target = document.createElement('div');
+    target.className = 'radar-target';
+    target.style.left = `calc(50% + ${x}px)`;
+    target.style.top = `calc(50% + ${y}px)`;
+    target.style.transform = 'translate(-50%, -50%)';
+    target.style.animationDelay = `${Math.random() * 1.5}s`;
+    
+    radioPulse.appendChild(target);
+  }
+
+  for (let i = 0; i < targetCount; i++) {
+    createRadarTarget();
+  }
+}
