@@ -128,6 +128,23 @@ h1 {
   color: var(--text-main);
 }
 
+.path-intro-container {
+  background: linear-gradient(135deg, #fff9f5 0%, #fff1e6 100%);
+}
+
+.path-intro-title {
+  margin-bottom: 10px;
+  font-size: clamp(28px, 3.3vw, 40px);
+  color: #b32000;
+}
+
+.path-intro-copy {
+  margin: 0;
+  color: #9f421b;
+  font-size: clamp(20px, 2.2vw, 26px);
+  line-height: 1.8;
+}
+
 .cta {
   display: inline-block;
   margin-top: 22px;
