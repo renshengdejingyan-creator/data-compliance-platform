@@ -133,16 +133,30 @@ h1 {
 }
 
 .path-intro-title {
+  text-align: center;
   margin-bottom: 10px;
   font-size: clamp(28px, 3.3vw, 40px);
   color: #b32000;
 }
 
 .path-intro-copy {
-  margin: 0;
+  margin: 0 0 12px;
+  text-align: center;
   color: #9f421b;
   font-size: clamp(20px, 2.2vw, 26px);
   line-height: 1.8;
+}
+
+.path-steps {
+  margin: 0;
+  padding-left: 1.4em;
+  color: #9f421b;
+  font-size: clamp(20px, 2.2vw, 26px);
+  line-height: 1.8;
+}
+
+.path-steps li + li {
+  margin-top: 8px;
 }
 
 .cta {
