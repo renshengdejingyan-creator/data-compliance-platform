@@ -59,3 +59,24 @@ const observer = new IntersectionObserver(
 revealTargets.forEach((target) => {
   observer.observe(target);
 });
+
+const titleTargets = document.querySelectorAll('.title-reveal');
+
+const titleObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        titleObserver.unobserve(entry.target);
+      }
+    });
+  },
+  {
+    threshold: 0.25,
+    rootMargin: '0px 0px -30px 0px'
+  }
+);
+
+titleTargets.forEach((title) => {
+  titleObserver.observe(title);
+});
