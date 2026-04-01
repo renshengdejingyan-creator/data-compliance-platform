@@ -2,29 +2,36 @@
 (function() {
     const canvas = document.getElementById('particleCanvas');
     if (!canvas) return;
+    if (typeof THREE === 'undefined') return;
+
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const particleCount = prefersReducedMotion ? 220 : (isMobile ? 450 : 900);
+    const maxLinksPerParticle = prefersReducedMotion ? 8 : (isMobile ? 12 : 20);
+    const maxDistance = prefersReducedMotion ? 5 : (isMobile ? 6 : 8);
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
     
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
     camera.position.z = 50;
 
     // 创建粒子系统
     const particlesGeometry = new THREE.BufferGeometry();
-    const particlesCount = 1500;
-    const posArray = new Float32Array(particlesCount * 3);
-    const velocities = new Float32Array(particlesCount * 3);
+    const posArray = new Float32Array(particleCount * 3);
+    const velocities = new Float32Array(particleCount * 3);
 
-    for (let i = 0; i < particlesCount * 3; i += 3) {
+    for (let i = 0; i < particleCount * 3; i += 3) {
         posArray[i] = (Math.random() - 0.5) * 100;
         posArray[i + 1] = (Math.random() - 0.5) * 100;
         posArray[i + 2] = (Math.random() - 0.5) * 100;
         
-        velocities[i] = (Math.random() - 0.5) * 0.02;
-        velocities[i + 1] = (Math.random() - 0.5) * 0.02;
-        velocities[i + 2] = (Math.random() - 0.5) * 0.02;
+        const speedFactor = prefersReducedMotion ? 0.45 : 1;
+        velocities[i] = (Math.random() - 0.5) * 0.02 * speedFactor;
+        velocities[i + 1] = (Math.random() - 0.5) * 0.02 * speedFactor;
+        velocities[i + 2] = (Math.random() - 0.5) * 0.02 * speedFactor;
     }
 
     particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
@@ -59,19 +66,48 @@
     let mouseY = 0;
     let targetX = 0;
     let targetY = 0;
+    let tick = 0;
+    let animationId = null;
+    let cachedLinePositions = [];
 
     document.addEventListener('mousemove', (event) => {
         mouseX = (event.clientX / window.innerWidth) * 2 - 1;
         mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
-    });
+    }, { passive: true });
 
     // 动画循环
+    function buildLinePositions(positions) {
+        const linePositions = [];
+
+        for (let i = 0; i < particleCount; i++) {
+            let links = 0;
+            for (let j = i + 1; j < particleCount; j++) {
+                if (links >= maxLinksPerParticle) break;
+
+                const dx = positions[i * 3] - positions[j * 3];
+                const dy = positions[i * 3 + 1] - positions[j * 3 + 1];
+                const dz = positions[i * 3 + 2] - positions[j * 3 + 2];
+                const distance = Math.sqrt(dx * dx + dy * dy + dz * dz);
+
+                if (distance < maxDistance) {
+                    linePositions.push(
+                        positions[i * 3], positions[i * 3 + 1], positions[i * 3 + 2],
+                        positions[j * 3], positions[j * 3 + 1], positions[j * 3 + 2]
+                    );
+                    links++;
+                }
+            }
+        }
+
+        return linePositions;
+    }
+
     function animate() {
-        requestAnimationFrame(animate);
+        animationId = requestAnimationFrame(animate);
 
         // 更新粒子位置
         const positions = particlesGeometry.attributes.position.array;
-        for (let i = 0; i < particlesCount * 3; i += 3) {
+        for (let i = 0; i < particleCount * 3; i += 3) {
             positions[i] += velocities[i];
             positions[i + 1] += velocities[i + 1];
             positions[i + 2] += velocities[i + 2];
@@ -83,27 +119,12 @@
         }
         particlesGeometry.attributes.position.needsUpdate = true;
 
-        // 创建连接线
-        const linePositions = [];
-        const maxDistance = 8;
-        
-        for (let i = 0; i < particlesCount; i++) {
-            for (let j = i + 1; j < particlesCount; j++) {
-                const dx = positions[i * 3] - positions[j * 3];
-                const dy = positions[i * 3 + 1] - positions[j * 3 + 1];
-                const dz = positions[i * 3 + 2] - positions[j * 3 + 2];
-                const distance = Math.sqrt(dx * dx + dy * dy + dz * dz);
-
-                if (distance < maxDistance) {
-                    linePositions.push(
-                        positions[i * 3], positions[i * 3 + 1], positions[i * 3 + 2],
-                        positions[j * 3], positions[j * 3 + 1], positions[j * 3 + 2]
-                    );
-                }
-            }
+        // 降低连线计算频率，减少 CPU 占用
+        if (tick % 3 === 0) {
+            cachedLinePositions = buildLinePositions(positions);
+            linesGeometry.setAttribute('position', new THREE.Float32BufferAttribute(cachedLinePositions, 3));
         }
-
-        linesGeometry.setAttribute('position', new THREE.Float32BufferAttribute(linePositions, 3));
+        tick++;
 
         // 鼠标交互效果
         targetX = mouseX * 5;
@@ -118,11 +139,26 @@
 
     animate();
 
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            if (animationId) {
+                cancelAnimationFrame(animationId);
+                animationId = null;
+            }
+            return;
+        }
+
+        if (!animationId) {
+            animate();
+        }
+    });
+
     // 响应式调整
     window.addEventListener('resize', () => {
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
         renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
     });
 
     // 添加额外的视觉效果
@@ -138,7 +174,9 @@
         blending: THREE.AdditiveBlending
     });
 
-    for (let i = 0; i < 10; i++) {
+    const glowCount = prefersReducedMotion ? 0 : (isMobile ? 3 : 8);
+
+    for (let i = 0; i < glowCount; i++) {
         const glow = new THREE.Mesh(glowGeometry, glowMaterial);
         glow.position.set(
             (Math.random() - 0.5) * 80,
