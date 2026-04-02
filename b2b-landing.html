@@ -9,14 +9,50 @@
 <body>
   <nav class="nav">
     <div class="nav-container">
-      <div class="nav-logo">天策AI<span class="accent">生态平台</span></div>
-      <div class="nav-links" aria-label="模块导航">
-        <a href="#data-overview">数据总览</a>
-        <a href="#traffic-monitor">实时流量监控</a>
-        <a href="#support-center" class="nav-cta">支撑中心</a>
+      <div class="nav-logo">
+        <img src="img/logo.png" alt="Logo" class="logo-image">
+        <span class="logo-text">城市运营中心版V3.0</span>
+      </div>
+      <div class="nav-right" aria-label="用户导航">
+        <span class="user-name">天津河西总代理</span>
+        <a href="#messages" class="nav-item message-center">
+          <span>消息中心</span>
+          <span class="message-badge">3</span>
+          <div class="message-tooltip">你有3条新线索提醒</div>
+        </a>
+        <a href="#wallet" class="nav-item">我的钱包</a>
       </div>
     </div>
   </nav>
+
+  <div class="news-banner">
+    <div class="news-track">
+      <div class="news-item active">恭喜！石家庄总代刚刚派单成功，新增【医美】行业商家1名！</div>
+      <div class="news-item">恭喜！济南总代名下商家成功获取 1 条高净值线索！</div>
+      <div class="news-item">恭喜！天津总代名下【律所】提取线索 3 条！</div>
+    </div>
+  </div>
+
+  <aside class="sidebar-menu">
+    <nav class="menu-list">
+      <a href="#overview" class="menu-item active">
+        <span class="menu-text">战区总览</span>
+      </a>
+      <a href="#create-order" class="menu-item highlight">
+        <span class="menu-icon plus-icon">+</span>
+        <span class="menu-text">一键新建派单</span>
+      </a>
+      <a href="#delivery" class="menu-item">
+        <span class="menu-text">交付监控大厅</span>
+      </a>
+      <a href="#leads" class="menu-item">
+        <span class="menu-text">客源线索公海</span>
+      </a>
+      <a href="#finance" class="menu-item">
+        <span class="menu-text">财务与分润结算</span>
+      </a>
+    </nav>
+  </aside>
 
   <header class="hero reveal">
     <div class="container">
@@ -27,6 +63,287 @@
   </header>
 
   <main>
+    <section class="module reveal" id="stats-overview">
+      <div class="container">
+        <div class="section-heading">
+          <h2 class="title-reveal">战区数据总览</h2>
+          <p>实时掌握运营核心指标</p>
+        </div>
+        <div class="stats-grid">
+          <article class="stat-card">
+            <div class="stat-icon">💰</div>
+            <div class="stat-content">
+              <h3 class="stat-title">本月累计分润收益</h3>
+              <div class="stat-value">¥42,850.00</div>
+              <div class="stat-trend positive">📈 比上月增加 12%</div>
+            </div>
+          </article>
+          
+          <article class="stat-card">
+            <div class="stat-icon">🏪</div>
+            <div class="stat-content">
+              <h3 class="stat-title">旗下绑定实体门店</h3>
+              <div class="stat-value">18家</div>
+              <div class="stat-trend">新增3家</div>
+            </div>
+          </article>
+          
+          <article class="stat-card">
+            <div class="stat-icon">🎯</div>
+            <div class="stat-content">
+              <h3 class="stat-title">本月AI拦截总线索</h3>
+              <div class="stat-value">156 条</div>
+              <div class="stat-trend">转化率达行业头部水平</div>
+            </div>
+          </article>
+          
+          <article class="stat-card">
+            <div class="stat-icon">⚡</div>
+            <div class="stat-content">
+              <h3 class="stat-title">AI算力消耗状态</h3>
+              <div class="stat-value">健康</div>
+              <div class="stat-trend">满载运行中，预计为商家节省人工：860小时</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="module reveal" id="quick-dispatch">
+      <div class="container">
+        <div class="dispatch-box">
+          <div class="dispatch-icon">🚀</div>
+          <h2 class="dispatch-title">一键派单</h2>
+          <p class="dispatch-desc">录入新商家信息，AI自动完成全流程交付</p>
+          <button class="dispatch-btn" id="openDispatchModal">
+            <span class="dispatch-btn-icon">+</span>
+            <span class="dispatch-btn-text">立即派单</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="module reveal" id="delivery-monitor">
+      <div class="container">
+        <div class="section-heading">
+          <h2 class="title-reveal">实时订单交付监控看板</h2>
+          <p>业务流水线实时跳动，全流程透明可视</p>
+        </div>
+        <div class="monitor-table-wrapper">
+          <table class="monitor-table">
+            <thead>
+              <tr>
+                <th>商家名称</th>
+                <th>购买套餐</th>
+                <th>当前AI交付进度</th>
+                <th>已获线索</th>
+                <th>负责人</th>
+              </tr>
+            </thead>
+          </table>
+          <div class="table-scroll-container">
+            <table class="monitor-table">
+              <tbody class="table-scroll-body">
+                <tr>
+                  <td class="merchant-name">天津XX金牌律所</td>
+                  <td class="package-name">3980保客版</td>
+                  <td class="progress-cell">
+                    <div class="progress-info">
+                      <span class="status-icon active">🟢</span>
+                      <span class="status-text">AI矩阵分发中</span>
+                    </div>
+                    <div class="progress-bar">
+                      <div class="progress-fill" style="width: 85%"></div>
+                    </div>
+                    <span class="progress-percent">85%</span>
+                  </td>
+                  <td class="leads-count highlight">8 条</td>
+                  <td class="manager-name">孙雨专员</td>
+                </tr>
+                <tr>
+                  <td class="merchant-name">滨海XX财税代账</td>
+                  <td class="package-name">3980保客版</td>
+                  <td class="progress-cell">
+                    <div class="progress-info">
+                      <span class="status-icon warning">🟡</span>
+                      <span class="status-text">数字人及剧本生成中</span>
+                    </div>
+                    <div class="progress-bar">
+                      <div class="progress-fill warning" style="width: 30%"></div>
+                    </div>
+                    <span class="progress-percent">30%</span>
+                  </td>
+                  <td class="leads-count">0 条</td>
+                  <td class="manager-name">后台引擎</td>
+                </tr>
+                <tr>
+                  <td class="merchant-name">和平XX全屋定制</td>
+                  <td class="package-name premium">19800全域版</td>
+                  <td class="progress-cell">
+                    <div class="progress-info">
+                      <span class="status-icon active">🟢</span>
+                      <span class="status-text">交付完成，持续截流中</span>
+                    </div>
+                    <div class="progress-bar">
+                      <div class="progress-fill complete" style="width: 100%"></div>
+                    </div>
+                    <span class="progress-percent">100%</span>
+                  </td>
+                  <td class="leads-count highlight">15 条</td>
+                  <td class="manager-name">孙雨专员</td>
+                </tr>
+                <tr>
+                  <td class="merchant-name">河东区XX二手车</td>
+                  <td class="package-name">2980保客版</td>
+                  <td class="progress-cell">
+                    <div class="progress-info">
+                      <span class="status-icon pending">⚪</span>
+                      <span class="status-text">待提交素材</span>
+                    </div>
+                    <div class="progress-bar">
+                      <div class="progress-fill pending" style="width: 0%"></div>
+                    </div>
+                    <span class="progress-percent">0%</span>
+                  </td>
+                  <td class="leads-count">0 条</td>
+                  <td class="manager-name muted">暂无</td>
+                </tr>
+                <tr>
+                  <td class="merchant-name">南开XX美容会所</td>
+                  <td class="package-name">3980保客版</td>
+                  <td class="progress-cell">
+                    <div class="progress-info">
+                      <span class="status-icon active">🟢</span>
+                      <span class="status-text">AI矩阵分发中</span>
+                    </div>
+                    <div class="progress-bar">
+                      <div class="progress-fill" style="width: 65%"></div>
+                    </div>
+                    <span class="progress-percent">65%</span>
+                  </td>
+                  <td class="leads-count highlight">5 条</td>
+                  <td class="manager-name">李明专员</td>
+                </tr>
+                <tr>
+                  <td class="merchant-name">河西XX教育培训</td>
+                  <td class="package-name premium">19800全域版</td>
+                  <td class="progress-cell">
+                    <div class="progress-info">
+                      <span class="status-icon active">🟢</span>
+                      <span class="status-text">交付完成，持续截流中</span>
+                    </div>
+                    <div class="progress-bar">
+                      <div class="progress-fill complete" style="width: 100%"></div>
+                    </div>
+                    <span class="progress-percent">100%</span>
+                  </td>
+                  <td class="leads-count highlight">22 条</td>
+                  <td class="manager-name">孙雨专员</td>
+                </tr>
+                <!-- 重复数据实现无缝滚动 -->
+                <tr>
+                  <td class="merchant-name">天津XX金牌律所</td>
+                  <td class="package-name">3980保客版</td>
+                  <td class="progress-cell">
+                    <div class="progress-info">
+                      <span class="status-icon active">🟢</span>
+                      <span class="status-text">AI矩阵分发中</span>
+                    </div>
+                    <div class="progress-bar">
+                      <div class="progress-fill" style="width: 85%"></div>
+                    </div>
+                    <span class="progress-percent">85%</span>
+                  </td>
+                  <td class="leads-count highlight">8 条</td>
+                  <td class="manager-name">孙雨专员</td>
+                </tr>
+                <tr>
+                  <td class="merchant-name">滨海XX财税代账</td>
+                  <td class="package-name">3980保客版</td>
+                  <td class="progress-cell">
+                    <div class="progress-info">
+                      <span class="status-icon warning">🟡</span>
+                      <span class="status-text">数字人及剧本生成中</span>
+                    </div>
+                    <div class="progress-bar">
+                      <div class="progress-fill warning" style="width: 30%"></div>
+                    </div>
+                    <span class="progress-percent">30%</span>
+                  </td>
+                  <td class="leads-count">0 条</td>
+                  <td class="manager-name">后台引擎</td>
+                </tr>
+                <tr>
+                  <td class="merchant-name">和平XX全屋定制</td>
+                  <td class="package-name premium">19800全域版</td>
+                  <td class="progress-cell">
+                    <div class="progress-info">
+                      <span class="status-icon active">🟢</span>
+                      <span class="status-text">交付完成，持续截流中</span>
+                    </div>
+                    <div class="progress-bar">
+                      <div class="progress-fill complete" style="width: 100%"></div>
+                    </div>
+                    <span class="progress-percent">100%</span>
+                  </td>
+                  <td class="leads-count highlight">15 条</td>
+                  <td class="manager-name">孙雨专员</td>
+                </tr>
+                <tr>
+                  <td class="merchant-name">河东区XX二手车</td>
+                  <td class="package-name">2980保客版</td>
+                  <td class="progress-cell">
+                    <div class="progress-info">
+                      <span class="status-icon pending">⚪</span>
+                      <span class="status-text">待提交素材</span>
+                    </div>
+                    <div class="progress-bar">
+                      <div class="progress-fill pending" style="width: 0%"></div>
+                    </div>
+                    <span class="progress-percent">0%</span>
+                  </td>
+                  <td class="leads-count">0 条</td>
+                  <td class="manager-name muted">暂无</td>
+                </tr>
+                <tr>
+                  <td class="merchant-name">南开XX美容会所</td>
+                  <td class="package-name">3980保客版</td>
+                  <td class="progress-cell">
+                    <div class="progress-info">
+                      <span class="status-icon active">🟢</span>
+                      <span class="status-text">AI矩阵分发中</span>
+                    </div>
+                    <div class="progress-bar">
+                      <div class="progress-fill" style="width: 65%"></div>
+                    </div>
+                    <span class="progress-percent">65%</span>
+                  </td>
+                  <td class="leads-count highlight">5 条</td>
+                  <td class="manager-name">李明专员</td>
+                </tr>
+                <tr>
+                  <td class="merchant-name">河西XX教育培训</td>
+                  <td class="package-name premium">19800全域版</td>
+                  <td class="progress-cell">
+                    <div class="progress-info">
+                      <span class="status-icon active">🟢</span>
+                      <span class="status-text">交付完成，持续截流中</span>
+                    </div>
+                    <div class="progress-bar">
+                      <div class="progress-fill complete" style="width: 100%"></div>
+                    </div>
+                    <span class="progress-percent">100%</span>
+                  </td>
+                  <td class="leads-count highlight">22 条</td>
+                  <td class="manager-name">孙雨专员</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="module reveal" id="path-intro">
       <div class="container path-intro-container">
         <h2 class="path-intro-title title-reveal">加入天策AI，你的创业路径极其简单。</h2>
@@ -185,6 +502,28 @@
       <h3 id="authTitle">访问受限</h3>
       <p>当前资源仅对已登录企业账户开放。请先完成登录后再下载。</p>
       <button class="modal-close" type="button" data-close="true">我知道了</button>
+    </div>
+  </div>
+
+  <div class="modal" id="dispatchModal" role="dialog" aria-modal="true" aria-labelledby="dispatchTitle" hidden>
+    <div class="modal-overlay" data-close-dispatch="true"></div>
+    <div class="modal-content dispatch-modal-content">
+      <h3 id="dispatchTitle">录入新商家，一键启动AI交付</h3>
+      <form class="dispatch-form" id="dispatchForm">
+        <div class="form-group">
+          <label for="companyName">公司名称</label>
+          <input type="text" id="companyName" name="companyName" placeholder="请输入公司名称" required>
+        </div>
+        <div class="form-group">
+          <label for="contactInfo">联系方式</label>
+          <input type="text" id="contactInfo" name="contactInfo" placeholder="请输入手机号或微信" required>
+        </div>
+        <p class="form-hint">只需上传商家基础信息，天策AI中央厨房自动完成剧本、数字人、分发拦截全流程</p>
+        <div class="form-actions">
+          <button type="button" class="btn-cancel" data-close-dispatch="true">取消</button>
+          <button type="submit" class="btn-submit">确认派单</button>
+        </div>
+      </form>
     </div>
   </div>
 

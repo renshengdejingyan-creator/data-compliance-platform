@@ -111,3 +111,51 @@ if (radioPulse) {
     createRadarTarget();
   }
 }
+
+const dispatchModal = document.getElementById('dispatchModal');
+const openDispatchBtn = document.getElementById('openDispatchModal');
+const closeDispatchTriggers = document.querySelectorAll('[data-close-dispatch="true"]');
+const dispatchForm = document.getElementById('dispatchForm');
+
+function openDispatchModal() {
+  if (!dispatchModal) return;
+  dispatchModal.hidden = false;
+  document.body.style.overflow = 'hidden';
+}
+
+function closeDispatchModal() {
+  if (!dispatchModal) return;
+  dispatchModal.hidden = true;
+  document.body.style.overflow = '';
+}
+
+if (openDispatchBtn) {
+  openDispatchBtn.addEventListener('click', openDispatchModal);
+}
+
+closeDispatchTriggers.forEach((trigger) => {
+  trigger.addEventListener('click', closeDispatchModal);
+});
+
+if (dispatchForm) {
+  dispatchForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    
+    const companyName = document.getElementById('companyName').value;
+    const contactInfo = document.getElementById('contactInfo').value;
+    
+    console.log('派单信息：', { companyName, contactInfo });
+    
+    alert(`派单成功！\n商家：${companyName}\n联系方式：${contactInfo}\n\nAI中央厨房已启动自动交付流程`);
+    
+    dispatchForm.reset();
+    closeDispatchModal();
+  });
+}
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    closeModal();
+    closeDispatchModal();
+  }
+});
