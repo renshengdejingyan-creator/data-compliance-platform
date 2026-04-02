@@ -1427,42 +1427,121 @@ main {
     font-size: 28px;
   }
 
-  /* 监控表格 - 问题3：隐藏负责人列和进度列，优化显示 */
+  /* 监控表格 - 移动端改为卡片布局 */
   .monitor-table-wrapper {
-    overflow-x: auto;
+    overflow: visible;
   }
 
   .table-scroll-container {
-    height: 300px;
+    height: auto;
+    max-height: 500px;
+    overflow-y: auto;
   }
 
-  .monitor-table {
-    font-size: 11px;
-    min-width: auto;
-  }
-
-  /* 隐藏第3列（当前AI交付进度）和第5列（负责人） */
-  .monitor-table th:nth-child(3),
-  .monitor-table td:nth-child(3),
-  .monitor-table th:nth-child(5),
-  .monitor-table td:nth-child(5) {
+  /* 隐藏表头 */
+  .monitor-table thead {
     display: none;
   }
 
-  .monitor-table th,
+  /* 表格改为块级布局 */
+  .table-scroll-container .monitor-table {
+    display: block;
+  }
+
+  .table-scroll-container tbody {
+    display: block;
+  }
+
+  .table-scroll-container tr {
+    display: block;
+    background: #ffffff;
+    border: 1px solid #ffe4d6;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 12px rgba(255, 58, 58, 0.08);
+  }
+
+  .table-scroll-container tr:hover {
+    background: #ffffff;
+    box-shadow: 0 6px 16px rgba(255, 58, 58, 0.12);
+  }
+
+  /* 所有单元格改为块级，显示标签 */
   .monitor-table td {
-    padding: 10px 8px;
+    display: block;
+    padding: 8px 0;
+    border: none;
+    text-align: left;
   }
 
-  .merchant-name {
-    font-size: 13px;
-  }
-
-  .package-name {
+  .monitor-table td::before {
+    content: attr(data-label);
+    font-weight: 700;
+    color: var(--dark-red);
+    display: block;
+    margin-bottom: 4px;
     font-size: 12px;
   }
 
+  /* 商家名称特殊样式 */
+  .merchant-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--dark-red);
+    padding-bottom: 12px;
+    border-bottom: 1px solid #ffe0d0;
+  }
+
+  .merchant-name::before {
+    display: none;
+  }
+
+  /* 套餐名称 */
+  .package-name {
+    font-size: 13px;
+  }
+
+  /* 进度单元格 */
+  .progress-cell {
+    min-width: auto;
+  }
+
+  .progress-info {
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 8px;
+  }
+
+  .status-icon {
+    font-size: 14px;
+  }
+
+  .status-text {
+    font-size: 12px;
+  }
+
+  .progress-bar {
+    height: 6px;
+    margin-bottom: 6px;
+  }
+
+  .progress-percent {
+    font-size: 12px;
+  }
+
+  /* 线索数量 */
   .leads-count {
+    font-size: 14px;
+  }
+
+  .leads-count.highlight {
+    font-size: 16px;
+  }
+
+  /* 负责人 */
+  .manager-name {
     font-size: 13px;
   }
 
