@@ -1291,18 +1291,89 @@ main {
 }
 
 @media (max-width: 768px) {
-  .nav-container {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 12px 14px;
-  }
-
-  .nav-links {
+  /* 隐藏左侧菜单 */
+  .sidebar-menu {
     display: none;
   }
 
+  /* 导航栏 - 问题1：缩小logo和文字，保持一行显示 */
+  .nav-container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    gap: 8px;
+  }
+
+  .nav-logo {
+    flex-direction: row;
+    gap: 6px;
+    align-items: center;
+  }
+
+  .logo-image {
+    height: 24px;
+  }
+
+  .logo-text {
+    font-size: 11px;
+    white-space: nowrap;
+  }
+
+  .nav-right {
+    flex-wrap: nowrap;
+    gap: 8px;
+  }
+
+  .user-name {
+    display: none;
+  }
+
+  .nav-item {
+    font-size: 11px;
+    padding: 5px 8px;
+    white-space: nowrap;
+  }
+
+  .nav-item > span:not(.message-badge) {
+    display: none;
+  }
+
+  .message-center {
+    position: relative;
+  }
+
+  .message-center span {
+    display: inline-flex !important;
+  }
+
+  .message-badge {
+    position: static;
+    min-width: 16px;
+    height: 16px;
+    font-size: 10px;
+    padding: 0 4px;
+  }
+
+  /* 横幅 - 问题2：修复顶部显示 */
+  .news-banner {
+    height: 32px;
+    top: 48px;
+    bottom: auto;
+  }
+
+  .news-item {
+    font-size: 12px;
+  }
+
+  .news-item::before {
+    content: '🎉 ';
+    margin-right: 2px;
+  }
+
+  /* Hero */
   .hero {
-    padding-top: 170px;
+    padding-top: 120px;
     min-height: auto;
   }
 
@@ -1311,6 +1382,110 @@ main {
     padding: 24px 20px;
   }
 
+  /* 战区数据总览 */
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .stat-card {
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  .stat-icon {
+    font-size: 36px;
+  }
+
+  .stat-value {
+    font-size: 24px;
+  }
+
+  /* 一键派单 */
+  .dispatch-box {
+    padding: 40px 24px;
+  }
+
+  .dispatch-icon {
+    font-size: 60px;
+  }
+
+  .dispatch-title {
+    font-size: 28px;
+  }
+
+  .dispatch-desc {
+    font-size: 16px;
+  }
+
+  .dispatch-btn {
+    padding: 16px 32px;
+    font-size: 20px;
+  }
+
+  .dispatch-btn-icon {
+    font-size: 28px;
+  }
+
+  /* 监控表格 - 问题3：隐藏负责人列和进度列，优化显示 */
+  .monitor-table-wrapper {
+    overflow-x: auto;
+  }
+
+  .table-scroll-container {
+    height: 300px;
+  }
+
+  .monitor-table {
+    font-size: 11px;
+    min-width: auto;
+  }
+
+  /* 隐藏第3列（当前AI交付进度）和第5列（负责人） */
+  .monitor-table th:nth-child(3),
+  .monitor-table td:nth-child(3),
+  .monitor-table th:nth-child(5),
+  .monitor-table td:nth-child(5) {
+    display: none;
+  }
+
+  .monitor-table th,
+  .monitor-table td {
+    padding: 10px 8px;
+  }
+
+  .merchant-name {
+    font-size: 13px;
+  }
+
+  .package-name {
+    font-size: 12px;
+  }
+
+  .leads-count {
+    font-size: 13px;
+  }
+
+  /* 弹窗 */
+  .modal-content {
+    width: calc(100% - 24px);
+    margin: 10vh auto 0;
+  }
+
+  .dispatch-modal-content {
+    max-width: 100%;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .btn-cancel,
+  .btn-submit {
+    width: 100%;
+  }
+
+  /* 通用 */
   .cta {
     width: 100%;
     min-width: 0;
@@ -1336,6 +1511,7 @@ main {
     grid-column: auto;
   }
 
+  /* 雷达动画 */
   .radio-pulse {
     width: 270px;
     height: 270px;
