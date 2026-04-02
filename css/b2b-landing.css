@@ -250,6 +250,7 @@ body {
   transform: translateY(-50%);
   width: 90px;
   z-index: 998;
+  margin-top: 56px;
 }
 
 .menu-list {
